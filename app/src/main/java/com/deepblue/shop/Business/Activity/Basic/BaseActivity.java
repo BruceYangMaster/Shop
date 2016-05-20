@@ -1,4 +1,4 @@
-package com.deepblue.shop.Business.Activity;
+package com.deepblue.shop.Business.Activity.Basic;
 
 import android.app.Activity;
 
