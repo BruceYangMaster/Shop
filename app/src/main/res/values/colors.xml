@@ -6,4 +6,9 @@
 
     <color name="now_text_color">#666666</color>
     <color name="home_page_title_color">#E74F74</color>
+    <!--2016-5-23-->
+    <!--背景色-->
+    <color name="bg_color">#ffffffff</color>
+    <!--字体颜色-->
+    <color name="text_color">#000000</color>
 </resources>
