@@ -7,11 +7,11 @@ import android.widget.Toast;
 
 public class BasicActivity extends AppCompatActivity {
     private long mExitTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        setContentView(R.layout.activity_basic);
+        //代码测试
     }
 
     @Override

@@ -8,13 +8,13 @@
     <RelativeLayout
         android:id="@+id/car_title"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="@dimen/title_height">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="购物车"
             android:layout_centerInParent="true"
-            android:textSize="20sp"/>
+            android:textSize="@dimen/title_size"/>
     </RelativeLayout>.....
     <ListView
         android:id="@+id/car_content"
