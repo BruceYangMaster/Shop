@@ -70,7 +70,7 @@ public class ShoppingCarFragment extends Fragment {
      * 初始化控件
      */
     public void initWight(){
-        mCarList = (ListView) mView.findViewById(R.id.car_content);    
+        mCarList = (ListView) mView.findViewById(R.id.car_content);
     }
 
 }
