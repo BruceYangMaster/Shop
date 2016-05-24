@@ -4,8 +4,50 @@
     android:layout_height="match_parent"
     tools:context="com.deepblue.shop.Business.Fragment.Home.HomeFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="tab1" />
+        android:layout_height="match_parent">
+        <!--title-->
+        <RelativeLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:id="@+id/scan_qrcode"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/margin_10dp"
+                android:src="@mipmap/zxing" />
+
+            <ImageView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin_10dp"
+                android:src="@mipmap/sms_my" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/message"
+                android:layout_toRightOf="@id/scan_qrcode"
+                android:background="@android:color/darker_gray"
+                android:drawableLeft="@mipmap/homepage_search"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+        <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+            android:id="@+id/auto_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorAccent"
+            android:layout_below="@id/title_layout" />
+
+    </RelativeLayout>
+
+
 </FrameLayout>
