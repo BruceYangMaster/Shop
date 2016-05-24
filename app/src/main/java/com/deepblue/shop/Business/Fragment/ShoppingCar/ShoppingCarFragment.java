@@ -7,7 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,7 +65,7 @@ public class ShoppingCarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_shopping_car, container, false);
-
+        initWight();
         return mView;
     }
 
@@ -73,4 +76,12 @@ public class ShoppingCarFragment extends Fragment {
         mCarList = (ListView) mView.findViewById(R.id.car_content);
     }
 
+
+    public void initCarData(){
+        ArrayList<GoodsInfo> listInfo = new ArrayList<>();
+        for (int i = 0;i<5;i++){
+            GoodsInfo info = new GoodsInfo();
+            info.setGoodsNum(1);
+        }
+    }
 }
