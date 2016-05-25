@@ -12,13 +12,16 @@
         <ListView
             android:id="@+id/category_leftlist"
             android:layout_width="100dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:listSelector="@android:color/darker_gray"
+            android:scrollbars="none" />
 
         <ListView
             android:id="@+id/category_rightlist"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray" />
     </LinearLayout>
 
 </FrameLayout>
