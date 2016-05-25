@@ -8,7 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.deepblue.shop.Business.Adapter.CategoryAdapter.CategoryLeftAdapter;
+import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
+
+import java.util.ArrayList;
 
 public class CategoryFragment extends Fragment {
 
@@ -63,7 +66,8 @@ public class CategoryFragment extends Fragment {
      */
     private void initLeftList(View view) {
         mLeftListView = (ListView) view.findViewById(R.id.category_leftlist);
-        categoryLeftAdapter = new CategoryLeftAdapter(getContext());
+        ArrayList<GoodsInfo> list = new ArrayList<>();
+        categoryLeftAdapter = new CategoryLeftAdapter(getContext(), list);
         mLeftListView.setAdapter(categoryLeftAdapter);
     }
 
