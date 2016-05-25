@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--首页recyclerview的头headview-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+            android:id="@+id/auto_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="230dp" />
+    </FrameLayout>
+
+    <!--模块化组件1-->
+    <include layout="@layout/home_module_a" />
+    <!--模块化组件 2-->
+    <include layout="@layout/home_module_b" />
+    <!--模块化组件 3-->
+    <include layout="@layout/home_module_c" />
+    <!--模块化组件 4-->
+    <include layout="@layout/home_module_d" />
+
+    <include layout="@layout/home_module_d" />
+
+    <include layout="@layout/home_module_d" />
+
+</LinearLayout>

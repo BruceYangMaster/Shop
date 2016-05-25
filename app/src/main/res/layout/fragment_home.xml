@@ -1,38 +1,23 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.deepblue.shop.Business.Fragment.Home.HomeFragment">
+    <!--title 一直在首页的最顶部-->
+    <include
+        android:id="@+id/title_layout"
+        layout="@layout/home_head" />
 
-    <LinearLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/title_layout"
         android:orientation="vertical">
-        <!--title-->
-        <include
-            android:id="@+id/title_layout"
-            layout="@layout/home_head" />
 
-        <FrameLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title_layout">
-
-            <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
-                android:id="@+id/auto_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="230dp" />
-        </FrameLayout>
-
-        <!--模块化组件1-->
-        <include layout="@layout/home_module_a" />
-        <!--模块化组件 2-->
-        <include layout="@layout/home_module_b" />
-        <!--模块化组件 3-->
-        <include layout="@layout/home_module_c" />
-
-
-    </LinearLayout>
-
-
-</FrameLayout>
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
