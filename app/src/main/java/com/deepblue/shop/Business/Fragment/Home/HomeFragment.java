@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.deepblue.shop.Business.Adapter.HomeAdapter.AutoVPAdapter;
-import com.deepblue.shop.Business.Adapter.HomeAdapter.RecyclerViewAdapter;
+import com.deepblue.shop.Business.Adapter.HomeAdapter.MyRecyclerViewAdapter;
 import com.deepblue.shop.Business.Model.Adv;
 import com.deepblue.shop.R;
 
@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void initContent(View view) {
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter();
+        MyRecyclerViewAdapter recyclerViewAdapter = new MyRecyclerViewAdapter();
         mRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
