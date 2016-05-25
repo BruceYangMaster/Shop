@@ -5,41 +5,29 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.deepblue.shop.Business.Adapter.CategoryAdapter.CategoryLeftAdapter;
 import com.deepblue.shop.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CategoryFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CategoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CategoryFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
+    private ListView mLeftListView;
+    private ListView mRightListView;
+    private CategoryLeftAdapter categoryLeftAdapter;
 
 
     public CategoryFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CategoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static CategoryFragment newInstance(String param1, String param2) {
         CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
@@ -61,8 +49,30 @@ public class CategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        View view = inflater.inflate(R.layout.fragment_category, container, false);
+        initLeftList(view);
+        initRightList(view);
+        return view;
     }
 
+
+    /**
+     * 初始化左边listview
+     *
+     * @param view
+     */
+    private void initLeftList(View view) {
+        mLeftListView = (ListView) view.findViewById(R.id.category_leftlist);
+        categoryLeftAdapter = new CategoryLeftAdapter(getContext());
+        mLeftListView.setAdapter(categoryLeftAdapter);
+    }
+
+    /**
+     * 初始化右边listview
+     *
+     * @param view
+     */
+    private void initRightList(View view) {
+        mRightListView = (ListView) view.findViewById(R.id.category_rightlist);
+    }
 }
