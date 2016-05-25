@@ -12,6 +12,18 @@ public class GoodsInfo implements Parcelable {
     private double goodsPrice;   //商品价格
     private int goodsNum;    //商品数量
     private String goodsBusinessName;   //商家名字
+    private Boolean isHave;   //商家名称头判断
+
+    public Boolean getHave() {
+        if (isHave == null){
+            return false;
+        }
+        return isHave;
+    }
+
+    public void setHave(Boolean have) {
+        isHave = have;
+    }
 
     public String getGoodsUrl() {
         return goodsUrl;
@@ -62,6 +74,7 @@ public class GoodsInfo implements Parcelable {
         goodsPrice = in.readDouble();
         goodsNum = in.readInt();
         goodsBusinessName = in.readString();
+        isHave = in.readByte() != 0;
     }
 
     public static final Creator<GoodsInfo> CREATOR = new Creator<GoodsInfo>() {
@@ -88,5 +101,6 @@ public class GoodsInfo implements Parcelable {
         parcel.writeDouble(goodsPrice);
         parcel.writeInt(goodsNum);
         parcel.writeString(goodsBusinessName);
+        parcel.writeByte((byte) (isHave ? 1 : 0));
     }
 }
