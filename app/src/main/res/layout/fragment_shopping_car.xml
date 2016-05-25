@@ -16,11 +16,58 @@
             android:layout_centerInParent="true"
             android:textSize="@dimen/title_size"/>
     </RelativeLayout>.....
-    <ListView
+
+    <RelativeLayout
+        android:id="@+id/car_buttom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height">
+        <CheckBox
+            android:id="@+id/car_allcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:button="@drawable/selector_check_bg"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/car_price_text"
+            android:text="合计："
+            android:layout_toRightOf="@id/car_allcheck"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/car_price_all"
+            android:text="￥100.00"
+            android:layout_toRightOf="@id/car_price_text"
+            android:layout_centerVertical="true"
+            android:textColor="@color/home_page_title_color"
+            android:layout_marginLeft="@dimen/margin_15dp"/>
+        <TextView
+            android:id="@+id/car_goto_shop"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/shopcar_goto_shop"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/bg_color"
+            android:textSize="@dimen/margin_15dp"
+            android:padding="@dimen/margin_10dp"/>
+    </RelativeLayout>
+    <ExpandableListView
         android:id="@+id/car_content"
+        android:layout_above="@id/car_buttom"
         android:layout_below="@id/car_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#ebebeb"
+        android:groupIndicator="@null"
+        android:dividerHeight="2dp"
+        android:footerDividersEnabled="false"
         />
-
 </RelativeLayout>
