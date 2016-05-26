@@ -2,27 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
+    android:layout_marginTop="10dp"
     android:orientation="horizontal">
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/test_color_2"
+
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/test_color_2"
             android:text="A" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/test_color_1"
             android:text="B" />
     </LinearLayout>
 
@@ -32,5 +34,11 @@
         android:layout_weight="1"
         android:background="@color/test_color_3">
 
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="原始的文本" />
     </RelativeLayout>
 </LinearLayout>

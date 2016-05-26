@@ -23,8 +23,6 @@
     <!--模块化组件 4-->
     <include layout="@layout/home_module_d" />
 
-    <include layout="@layout/home_module_d" />
-
-    <include layout="@layout/home_module_d" />
+    <include layout="@layout/home_module_e" />
 
 </LinearLayout>
