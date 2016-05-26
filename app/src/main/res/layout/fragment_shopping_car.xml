@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/car_price_all"
-            android:text="￥100.00"
+            android:text="￥0.00"
             android:layout_toRightOf="@id/car_price_text"
             android:layout_centerVertical="true"
             android:textColor="@color/home_page_title_color"

@@ -5,23 +5,27 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.deepblue.shop.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PersonFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link PersonFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PersonFragment extends Fragment {
+public class PersonFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private View mView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -61,8 +65,95 @@ public class PersonFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_person, container, false);
+        mView = inflater.inflate(R.layout.fragment_person, container, false);
+        initWight();
+        return mView;
     }
 
+    public void initWight(){
+        RelativeLayout mAllOrder = (RelativeLayout) mView.findViewById(R.id.all_order_lin);   //所有订单
+        RelativeLayout mAllMoney = (RelativeLayout) mView.findViewById(R.id.all_money_lin);   //我的资产
+        RelativeLayout mSetting = (RelativeLayout) mView.findViewById(R.id.all_setting_lin);  //设置地址
+        TextView mDaifukuan = (TextView) mView.findViewById(R.id.daifukuan_txt);   //待付款
+        TextView mDaifahuo = (TextView) mView.findViewById(R.id.daifahuo_txt);   //待发货
+        TextView mDaishouhuo = (TextView) mView.findViewById(R.id.daishouhuo_txt);  //待收货
+        TextView mDaipingjia = (TextView) mView.findViewById(R.id.daipingjia_txt);  //待评价
+        TextView mTuihuanhuo  = (TextView) mView.findViewById(R.id.tuihuanhuo_txt);   //退换货
+        TextView mGouwuquan = (TextView) mView.findViewById(R.id.gouwuquan_txt);  //购物券
+        TextView mYouhuiquan = (TextView) mView.findViewById(R.id.youhuiquan_txt);   //优惠券
+        TextView mJifen = (TextView) mView.findViewById(R.id.jifen_txt);    //积分
+        TextView mHongbao = (TextView) mView.findViewById(R.id.hongbao_txt);  //红包
+        LinearLayout mGoodsshoucang = (LinearLayout) mView.findViewById(R.id.shoucang_goods_lin);   //商品收藏
+        LinearLayout mBuessshoucang = (LinearLayout) mView.findViewById(R.id.shoucang_buess_lin);   //店铺收藏
+        LinearLayout mZuji = (LinearLayout) mView.findViewById(R.id.my_zuji);    //我的足迹
+
+
+        mAllMoney.setOnClickListener(this);
+        mAllOrder.setOnClickListener(this);
+        mDaifukuan.setOnClickListener(this);
+        mDaifahuo.setOnClickListener(this);
+        mDaishouhuo.setOnClickListener(this);
+        mDaipingjia.setOnClickListener(this);
+        mTuihuanhuo.setOnClickListener(this);
+        mSetting.setOnClickListener(this);
+        mGouwuquan.setOnClickListener(this);
+        mYouhuiquan.setOnClickListener(this);
+        mJifen.setOnClickListener(this);
+        mHongbao.setOnClickListener(this);
+        mGoodsshoucang.setOnClickListener(this);
+        mBuessshoucang.setOnClickListener(this);
+        mZuji.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.all_order_lin:
+                Toast.makeText(getActivity(),"订单点击",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.all_money_lin:
+                Toast.makeText(getActivity(),"资产点击",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.all_setting_lin:
+                Toast.makeText(getActivity(),"设置点击",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.daifukuan_txt:
+                Toast.makeText(getActivity(),"待付款",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.daifahuo_txt:
+                Toast.makeText(getActivity(),"待发货",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.daishouhuo_txt:
+                Toast.makeText(getActivity(),"待收货",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.daipingjia_txt:
+                Toast.makeText(getActivity(),"待评价",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tuihuanhuo_txt:
+                Toast.makeText(getActivity(),"退换货",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.gouwuquan_txt:
+                Toast.makeText(getActivity(),"购物券",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.youhuiquan_txt:
+                Toast.makeText(getActivity(),"优惠券",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.jifen_txt:
+                Toast.makeText(getActivity(),"积分",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.hongbao_txt:
+                Toast.makeText(getActivity(),"红包",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.shoucang_goods_lin:
+                Toast.makeText(getActivity(),"商品收藏",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.shoucang_buess_lin:
+                Toast.makeText(getActivity(),"店铺收藏",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.my_zuji:
+                Toast.makeText(getActivity(),"我的足迹",Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }

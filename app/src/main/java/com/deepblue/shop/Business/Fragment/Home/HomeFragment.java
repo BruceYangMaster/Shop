@@ -132,11 +132,11 @@ public class HomeFragment extends Fragment {
         /**
          * headview，要添加到recyclerview上的
          */
-        initHeadView(view);
+//        initHeadView(view);
         /**
          * 内容，就是商品列表
          */
-        initContent(view);
+//        initContent(view);
 
     }
 

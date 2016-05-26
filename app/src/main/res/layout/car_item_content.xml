@@ -31,6 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_15dp"
+        android:background="@drawable/selector_check_bg"
+        android:focusable="false"
+        android:button="@null"
         android:layout_centerVertical="true"/>
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/car_item_content_img"
@@ -51,7 +54,7 @@
         android:id="@+id/car_item_content_price"
         android:layout_toRightOf="@id/car_item_content_img"
         android:layout_alignParentBottom="true"
-        android:text="100.0"
+        android:text="0.00"
         android:layout_marginBottom="@dimen/margin_10dp"
         android:layout_marginLeft="@dimen/margin_10dp"
         android:textColor="@color/home_page_title_color"
@@ -82,14 +85,13 @@
                 android:background="@mipmap/jian"
                 android:gravity="center" />
 
-            <EditText
+            <TextView
                 android:id="@+id/num_textview"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:background="@mipmap/shuzi"
                 android:gravity="center"
-                android:inputType="number"
                 android:singleLine="true"
                 android:text="1" />
 

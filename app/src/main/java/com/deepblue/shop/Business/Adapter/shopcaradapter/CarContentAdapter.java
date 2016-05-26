@@ -1,4 +1,4 @@
-package com.deepblue.shop.Business.Adapter;
+package com.deepblue.shop.Business.Adapter.shopcaradapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
