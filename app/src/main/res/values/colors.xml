@@ -5,6 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="now_text_color">#666666</color>
+    <!--首页商品背景色-->
+    <color name="goods_list_bg">#666666</color>
     <color name="home_page_title_color">#E74F74</color>
     <!--2016-5-23-->
     <!--背景色-->

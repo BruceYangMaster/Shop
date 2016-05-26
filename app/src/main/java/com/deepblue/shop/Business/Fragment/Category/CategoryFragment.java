@@ -79,18 +79,17 @@ public class CategoryFragment extends Fragment {
          * 给listview添加点击变色事件
          */
 //        mLeftListView.setSelectionFromTop(1, 1);
-        mLeftListView.setSelection(0);
+
         mLeftListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                parent.requestFocusFromTouch(); // IMPORTANT!
 //                parent.setSelection(position);
                 //
-
-                mRightListView.setItemChecked(position, true);
+                mLeftListView.setItemChecked(position, true);
             }
         });
-
+        mLeftListView.setItemChecked(0, true);
     }
 
     /**
@@ -130,7 +129,6 @@ public class CategoryFragment extends Fragment {
 
     /**
      * 初始化右边listview
-     *
      *
      * @param view
      */
