@@ -12,6 +12,7 @@ import android.widget.GridView;
 import com.deepblue.shop.Business.Adapter.HomeAdapter.AutoVPAdapter;
 import com.deepblue.shop.Business.Adapter.HomeAdapter.MyRecyclerViewAdapter;
 import com.deepblue.shop.Business.Model.Adv;
+import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
 
 import java.util.ArrayList;
@@ -128,26 +129,50 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setLayoutManager(manager);
 //mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 //mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));
-
-        /**
-         * headview，要添加到recyclerview上的
-         */
-//        initHeadView(view);
+/**
+ * headview，要添加到recyclerview上的
+ */
+        initHeadView(view);
         /**
          * 内容，就是商品列表
          */
-//        initContent(view);
+        initContent(view);
 
     }
 
     private void initContent(View view) {
-        MyRecyclerViewAdapter recyclerViewAdapter = new MyRecyclerViewAdapter();
+        ArrayList<GoodsInfo> goodsList = initGoodsData();
+        MyRecyclerViewAdapter recyclerViewAdapter = new MyRecyclerViewAdapter(getContext(), goodsList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+    /**
+     * 先模拟一个假数据(只有名字，价钱，图片url)
+     *
+     * @return
+     */
+    private ArrayList<GoodsInfo> initGoodsData() {
+        ArrayList<GoodsInfo> goodsList = new ArrayList<>();
+        GoodsInfo goodsInfo = new GoodsInfo();
+        goodsInfo.setGoodsTitle("【华为官方 现货抢购】Huawei/华为 P9 3GB+32GB 徕卡手机");
+        goodsInfo.setGoodsUrl("https://img.alicdn.com/bao/uploaded/i6/TB1tEGrKXXXXXawXXXXDFDD_VXX_065209.jpg_b.jpg");
+        goodsInfo.setGoodsPrice(100);
+        //
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        goodsList.add(goodsInfo);
+        return goodsList;
     }
 
     private void initHeadView(View view) {
         View headView = LayoutInflater.from(getContext()).inflate(R.layout.home_headview, null);
-        mRecyclerView.addView(headView);
         initAutoVp(view);
     }
 

@@ -5,10 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.deepblue.shop.Business.Adapter.CategoryAdapter.CategoryLeftAdapter;
-import com.deepblue.shop.Business.Model.GoodsInfo;
+import com.deepblue.shop.Business.Model.Category.MainCategoryModel;
 import com.deepblue.shop.R;
 
 import java.util.ArrayList;
@@ -66,9 +67,64 @@ public class CategoryFragment extends Fragment {
      */
     private void initLeftList(View view) {
         mLeftListView = (ListView) view.findViewById(R.id.category_leftlist);
-        ArrayList<GoodsInfo> list = new ArrayList<>();
-        categoryLeftAdapter = new CategoryLeftAdapter(getContext(), list);
+/**
+ * 初始化左边的list数据
+ */
+        ArrayList<MainCategoryModel> mainCategoryModelArrayList = initLeftListData();
+        //初始化适配器
+        categoryLeftAdapter = new CategoryLeftAdapter(getContext());
+        categoryLeftAdapter.setData(mainCategoryModelArrayList);
         mLeftListView.setAdapter(categoryLeftAdapter);
+        /**
+         * 给listview添加点击变色事件
+         */
+//        mLeftListView.setSelectionFromTop(1, 1);
+
+        mLeftListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                parent.requestFocusFromTouch(); // IMPORTANT!
+//                parent.setSelection(position);
+                //
+                mLeftListView.setItemChecked(position, true);
+            }
+        });
+        mLeftListView.setItemChecked(0, true);
+    }
+
+    /**
+     * 初始化左边list数据
+     *
+     * @return
+     */
+    private ArrayList<MainCategoryModel> initLeftListData() {
+        ArrayList<MainCategoryModel> list = new ArrayList<>();
+        MainCategoryModel mainCategoryModel = new MainCategoryModel();
+        mainCategoryModel.setCategoryName("耐克");
+        mainCategoryModel.setImagUrl("http://d.ifengimg.com/w140_h100/p3.ifengimg.com/a/2016_22/edb675d163ac6e2.jpg");
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        list.add(mainCategoryModel);
+        return list;
     }
 
     /**
@@ -78,5 +134,15 @@ public class CategoryFragment extends Fragment {
      */
     private void initRightList(View view) {
         mRightListView = (ListView) view.findViewById(R.id.category_rightlist);
+        /**
+         * 初始化左边的list数据
+         */
+        ArrayList<MainCategoryModel> mainCategoryModelArrayList = initLeftListData();
+        //初始化适配器
+        categoryLeftAdapter = new CategoryLeftAdapter(getContext());
+        categoryLeftAdapter.setData(mainCategoryModelArrayList);
+        mRightListView.setAdapter(categoryLeftAdapter);
+
+
     }
 }
