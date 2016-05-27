@@ -23,4 +23,5 @@
     <color name="divider">#DDDDDD</color>
     <!--商品详情背景 #F5F5F5-->
     <color name="goods_detail_bg">#DDDDDD</color>
+    <color name="user_background">	#d0d0d0</color>
 </resources>

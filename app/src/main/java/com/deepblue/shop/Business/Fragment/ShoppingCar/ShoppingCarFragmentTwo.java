@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import com.deepblue.shop.Business.Adapter.MyBaseExpandableListAdapter;
+import com.deepblue.shop.Business.Adapter.shopcaradapter.MyBaseExpandableListAdapter;
 import com.deepblue.shop.Business.Model.bean.GoodsBean;
 import com.deepblue.shop.Business.Model.bean.StoreBean;
 import com.deepblue.shop.R;
@@ -118,7 +118,7 @@ public class ShoppingCarFragmentTwo extends Fragment {
             @Override
             public void onGoodsCheckedChange(int totalCount, double totalPrice) {
                 mTotalPrice.setText(String.format(getString(R.string.price), totalPrice));
-//                id_tv_totalCount_jiesuan.setText(String.format(getString(R.string.jiesuan), totalCount));
+//                id_tv_totalCount_jiesuan.setText(String.format(getString(R.string.jiesuan), totalCount));   //结算时的总数量
             }
         });
 
@@ -154,12 +154,8 @@ public class ShoppingCarFragmentTwo extends Fragment {
 
     public void initCarData(){
 
-
         //提供父列表的数据
         Map<String, Object> parentMap = new HashMap<String, Object>();
-
-
-//                info.setHave(true);
                 StoreBean ben = new StoreBean();
                 ben.setName("电商平台1");
                 parentMap.put("parentName", ben);
@@ -181,8 +177,6 @@ public class ShoppingCarFragmentTwo extends Fragment {
 
         //提供父列表的数据
         parentMap = new HashMap<String, Object>();
-
-
                 ben = new StoreBean();
                 ben.setName("电商平台2");
                 parentMap.put("parentName", ben);
@@ -194,9 +188,30 @@ public class ShoppingCarFragmentTwo extends Fragment {
                 Map<String, Object> childMap = new HashMap<String, Object>();
                 GoodsBean goodsBean = new GoodsBean();
                 goodsBean.setCount(1);
-                goodsBean.setName("成都老火锅");
-                goodsBean.setPrice(123.00);
+                goodsBean.setName("重庆老火锅");
+                goodsBean.setPrice(345.00);
                 goodsBean.setImageLogo("http://img4.duitang.com/uploads/item/201301/26/20130126225257_QkaSQ.thumb.600_0.jpeg");
+                childMap.put("childName", goodsBean);
+                childMapList.add(childMap);
+            }
+            childMapList_list.add(childMapList);
+//            listInfo.add(info);
+        //提供父列表的数据
+        parentMap = new HashMap<String, Object>();
+                ben = new StoreBean();
+                ben.setName("电商平台3");
+                parentMap.put("parentName", ben);
+
+            parentMapList.add(parentMap);
+            //提供当前父列的子列数据
+            childMapList = new ArrayList<Map<String, Object>>();
+            for (int j = 0; j < 3; j++) {
+                Map<String, Object> childMap = new HashMap<String, Object>();
+                GoodsBean goodsBean = new GoodsBean();
+                goodsBean.setCount(1);
+                goodsBean.setName("重庆老火锅2");
+                goodsBean.setPrice(200.00);
+                goodsBean.setImageLogo("http://life.xiancn.com/images/site2/20100414/e4e30fd40f281c0d71103bf79ff00e2b.jpg");
                 childMap.put("childName", goodsBean);
                 childMapList.add(childMap);
             }

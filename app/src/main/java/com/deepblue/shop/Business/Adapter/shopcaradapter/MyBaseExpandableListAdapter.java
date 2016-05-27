@@ -1,4 +1,4 @@
-package com.deepblue.shop.Business.Adapter;
+package com.deepblue.shop.Business.Adapter.shopcaradapter;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.deepblue.shop.Business.Model.bean.GoodsBean;
 import com.deepblue.shop.Business.Model.bean.StoreBean;
@@ -132,7 +130,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "店铺：" + parentName, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "店铺：" + parentName, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -173,10 +171,11 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //            childViewHolder.id_tv_discount_price = (TextView) convertView
 //                    .findViewById(R.id.id_tv_discount_price);   //此处后面再写（折扣价格）
 
-//            childViewHolder.id_tv_count = (TextView) convertView
-//                    .findViewById(R.id.id_tv_count);     //数量
-            childViewHolder.id_ed_count = (EditText) convertView.findViewById(R.id.num_textview);
-
+            childViewHolder.id_tv_count = (TextView) convertView
+                    .findViewById(R.id.num_textview);     //数量
+//            childViewHolder.id_ed_count = (EditText) convertView.findViewById(R.id.num_textview);
+            childViewHolder.id_iv_add = (TextView) convertView.findViewById(R.id.num_add_textview);   //加
+            childViewHolder.id_iv_reduce = (TextView) convertView.findViewById(R.id.num_desc_textview);  //减
 
             convertView.setTag(childViewHolder);
         } else {
@@ -189,7 +188,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "商品：" + goodsBean.getName(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "商品：" + goodsBean.getName(), Toast.LENGTH_SHORT).show();
             }
         });
         if (!TextUtils.isEmpty(goodsBean.getImageLogo())){
@@ -209,7 +208,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //        childViewHolder.id_tv_count.setText(String.format(context.getString(R.string.good_count), goodsBean.getCount()));
 //        childViewHolder.id_tv_count_now.setText(String.valueOf(goodsBean.getCount()));
 
-        childViewHolder.id_ed_count.setText(goodsBean.getCount()+"");
+        childViewHolder.id_tv_count.setText(goodsBean.getCount()+"");
 
 //        double priceNow = goodsBean.getCount() * goodsBean.getDiscountPrice();//小结
 //        childViewHolder.id_tv_price_now.setText(String.format(context.getString(R.string.price), priceNow));
@@ -224,8 +223,6 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
                 goodsBean.setIsChecked(!nowBeanChecked);
 
                 boolean isOneParentAllChildIsChecked = dealOneParentAllChildIsChecked(groupPosition);
-                Log.d(TAG, "getChildView:onClick:  ==============");
-                Log.d(TAG, "getChildView:onClick:isOneParentAllChildIsChecked:" + isOneParentAllChildIsChecked);
 
                 StoreBean storeBean = (StoreBean) parentMapList.get(groupPosition).get("parentName");
                 storeBean.setIsChecked(isOneParentAllChildIsChecked);
@@ -238,58 +235,22 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
             }
         });
 
-//        if (goodsBean.isEditing()) {
-//            childViewHolder.id_ll_normal.setVisibility(View.GONE);
-//            childViewHolder.id_ll_edtoring.setVisibility(View.VISIBLE);
-//        } else {
-//            childViewHolder.id_ll_normal.setVisibility(View.VISIBLE);
-//            childViewHolder.id_ll_edtoring.setVisibility(View.GONE);
-//        }
 
-//        childViewHolder.id_iv_add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // TextView textView= (TextView) v.getRootView().findViewById(R.id.id_tv_num);
-//                dealAdd(goodsBean);
-//            }
-//        });
-//        childViewHolder.id_iv_reduce.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //TextView textView= (TextView) v.getRootView().findViewById(R.id.id_tv_num);
-//                dealReduce(goodsBean);
-//            }
-//        });
-
-//        childViewHolder.id_tv_goods_star.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(context, "收藏商品：" + goodsBean.getName(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        childViewHolder.id_tv_goods_delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //  Toast.makeText(context, "删除商品：" + goodsBean.getName(), Toast.LENGTH_SHORT).show();
-//                removeOneGood(groupPosition, childPosition);
-//            }
-//        });
-     /*   id_cb_select_child.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        childViewHolder.id_iv_add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                GoodsBean goodsBean = (GoodsBean) childMapList_list.get(groupPosition).get(childPosition).get("childName");
-                //更新数据
-                goodsBean.setIsChecked(isChecked);
-                boolean isAllChecked=dealOneParentAllChildIsChecked(groupPosition,isChecked);
-                if (isAllChecked){
-                    StoreBean storeBean= (StoreBean) parentMapList.get(groupPosition).get("parentName");
-                    storeBean.setIsChecked(true);
-                }
-
-                Toast.makeText(context, "CHALID :isAllChecked" + isAllChecked, Toast.LENGTH_SHORT).show();
-                notifyDataSetChanged();
+            public void onClick(View v) {
+                // TextView textView= (TextView) v.getRootView().findViewById(R.id.id_tv_num);
+                dealAdd(goodsBean);
             }
-        });*/
+        });
+        childViewHolder.id_iv_reduce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TextView textView= (TextView) v.getRootView().findViewById(R.id.id_tv_num);
+                dealReduce(goodsBean);
+            }
+        });
+
 
         return convertView;
     }
@@ -302,8 +263,6 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 
     //供全选按钮调用
     public void setupAllChecked(boolean isChecked) {
-        Log.d(TAG, "setupAllChecked: ============");
-        Log.d(TAG, "setupAllChecked: isChecked：" + isChecked);
 
         for (int i = 0; i < parentMapList.size(); i++) {
             StoreBean storeBean = (StoreBean) parentMapList.get(i).get("parentName");
@@ -320,9 +279,6 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     private void setupOneParentAllChildChecked(boolean isChecked, int groupPosition) {
-        Log.d(TAG, "setupOneParentAllChildChecked: ============");
-        Log.d(TAG, "setupOneParentAllChildChecked: groupPosition:" + groupPosition);
-        Log.d(TAG, "setupOneParentAllChildChecked: isChecked：" + isChecked);
         StoreBean storeBean = (StoreBean) parentMapList.get(groupPosition).get("parentName");
         storeBean.setIsChecked(isChecked);
 
@@ -336,8 +292,6 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public boolean dealOneParentAllChildIsChecked(int groupPosition) {
-        Log.d(TAG, "dealOneParentAllChildIsChecked: ============");
-        Log.d(TAG, "dealOneParentAllChildIsChecked: groupPosition：" + groupPosition);
         // StoreBean storeBean= (StoreBean) parentMapList.get(groupPosition).get("parentName");
         List<Map<String, Object>> childMapList = childMapList_list.get(groupPosition);
         for (int j = 0; j < childMapList.size(); j++) {
@@ -350,7 +304,6 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public boolean dealAllParentIsChecked() {
-        Log.d(TAG, "dealAllParentIsChecked: ============");
         for (int i = 0; i < parentMapList.size(); i++) {
             StoreBean storeBean = (StoreBean) parentMapList.get(i).get("parentName");
             if (!storeBean.isChecked()) {
@@ -371,7 +324,8 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
             for (int j = 0; j < childMapList.size(); j++) {
                 GoodsBean goodsBean = (GoodsBean) childMapList.get(j).get("childName");
                 int count = goodsBean.getCount();
-                double discountPrice = goodsBean.getDiscountPrice();
+//                double discountPrice = goodsBean.getDiscountPrice();   //处理折扣价格
+                double discountPrice = goodsBean.getPrice();   //处理实价价格
                 if (goodsBean.isChecked()) {
                     totalCount++;//单品多数量只记1
                     totalPrice += discountPrice * count;
@@ -597,15 +551,15 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //        TextView tv_items_child_desc;
         TextView id_tv_price;
 //        TextView id_tv_discount_price;
-//        TextView id_tv_count;
+        TextView id_tv_count;
         ImageView id_im_image;
-        EditText id_ed_count;
+//        EditText id_ed_count;
 
-//        ImageView id_iv_reduce;
-//        ImageView id_iv_add;
+        TextView id_iv_reduce;
+        TextView id_iv_add;
 //        TextView id_tv_des_now;
 //        TextView id_tv_count_now;
-//        TextView id_tv_price_now;
+        TextView id_tv_price_now;
 //        TextView id_tv_goods_star;
 //        TextView id_tv_goods_delete;
 

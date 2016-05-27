@@ -7,4 +7,19 @@
     <string name="shopcar_goto_shop">去结算</string>
     <string name="price">￥%s</string>
     <string name="good_count">x %d</string>
+    <string name="all_order_txt">全部订单</string>
+    <string name="all_order_see_txt">查看全部订单</string>
+    <string name="daifukuan_txt">待付款</string>
+    <string name="daifahuo_txt">待发货</string>
+    <string name="daishouhuo_txt">待收货</string>
+    <string name="daipingjia_txt">待评价</string>
+    <string name="tuihuanhuo_txt">退款/售后</string>
+    <string name="all_money_txt">我的资产</string>
+    <string name="all_money_see_txt">查看全部资产</string>
+    <string name="gouwuquan_txt">购物券</string>
+    <string name="youhuiquan_txt">优惠券</string>
+    <string name="jifen_txt">积分</string>
+    <string name="hongbao_txt">红包</string>
+    <string name="setting_txt">设置</string>
+    <string name="setting_address_txt">收获地址管理</string>
 </resources>

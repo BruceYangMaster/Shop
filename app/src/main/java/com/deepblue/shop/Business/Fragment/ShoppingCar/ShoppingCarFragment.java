@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 
-import com.deepblue.shop.Business.Adapter.CarContentAdapter;
+import com.deepblue.shop.Business.Adapter.shopcaradapter.CarContentAdapter;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.Business.Model.SharePrenceUtil;
 import com.deepblue.shop.R;
