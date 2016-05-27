@@ -1,5 +1,6 @@
 package com.deepblue.shop.Business.Fragment.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -7,8 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.deepblue.shop.Business.Activity.Home.GoodsDetailActivity;
+import com.deepblue.shop.Business.Activity.Home.SearchActivity;
 import com.deepblue.shop.Business.Adapter.HomeAdapter.AutoVPAdapter;
 import com.deepblue.shop.Business.Adapter.HomeAdapter.MyRecyclerViewAdapter;
 import com.deepblue.shop.Business.Model.Adv;
@@ -97,15 +104,45 @@ public class HomeFragment extends Fragment {
         /**
          * title
          */
-        initTitle();
+        initTitle(view);
         /**
          * 初始化内容了
          */
         initRecyclerView(view);
     }
 
-    private void initTitle() {
-
+    private void initTitle(View view) {
+        /**
+         * 二维码扫描
+         */
+        ImageView scanQrcodeImg = (ImageView) view.findViewById(R.id.home_scan_qrcode);
+        scanQrcodeImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "二维码扫描", Toast.LENGTH_SHORT).show();
+            }
+        });
+        /**
+         * 首页搜索框
+         */
+        EditText searchEt = (EditText) view.findViewById(R.id.home_search_et);
+        searchEt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+        /**
+         * 首页消息
+         */
+        ImageView messageImg = (ImageView) view.findViewById(R.id.home_message);
+        messageImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "首页消息", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -144,6 +181,7 @@ public class HomeFragment extends Fragment {
         ArrayList<GoodsInfo> goodsList = initGoodsData();
         MyRecyclerViewAdapter recyclerViewAdapter = new MyRecyclerViewAdapter(getContext(), goodsList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
+
     }
 
     /**
@@ -171,9 +209,23 @@ public class HomeFragment extends Fragment {
         return goodsList;
     }
 
+    /**
+     * 初始化上部
+     *
+     * @param view
+     */
     private void initHeadView(View view) {
         View headView = LayoutInflater.from(getContext()).inflate(R.layout.home_headview, null);
         initAutoVp(view);
+        //
+        final TextView tv = (TextView) view.findViewById(R.id.test);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -182,7 +234,7 @@ public class HomeFragment extends Fragment {
      * @param view
      */
     private void initAutoVp(View view) {
-        mAutoSVP = (AutoScrollViewPager) view.findViewById(R.id.auto_viewpager);
+        mAutoSVP = (AutoScrollViewPager) view.findViewById(R.id.home_auto_viewpager);
 
         List<Adv> advList = initAutoVpData();
         mAutoAdapter = new AutoVPAdapter(getContext(), advList);

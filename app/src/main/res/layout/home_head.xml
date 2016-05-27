@@ -8,7 +8,7 @@
     android:focusableInTouchMode="true">
 
     <ImageView
-        android:id="@+id/scan_qrcode"
+        android:id="@+id/home_scan_qrcode"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -16,7 +16,7 @@
         android:src="@mipmap/zxing" />
 
     <ImageView
-        android:id="@+id/message"
+        android:id="@+id/home_message"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
@@ -24,11 +24,16 @@
         android:src="@mipmap/sms_my" />
 
     <EditText
+        android:id="@+id/home_search_et"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@id/message"
-        android:layout_toRightOf="@id/scan_qrcode"
+        android:layout_toLeftOf="@id/home_message"
+        android:layout_toRightOf="@id/home_scan_qrcode"
         android:background="@android:color/darker_gray"
         android:drawableLeft="@mipmap/homepage_search"
-        android:singleLine="true" />
+        android:drawablePadding="10dp"
+        android:editable="false"
+        android:hint="搜索一下"
+        android:singleLine="true"
+        android:textColor="#666666" />
 </RelativeLayout>
