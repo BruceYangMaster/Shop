@@ -8,16 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.Business.Model.SharePrenceUtil;
 import com.deepblue.shop.R;
-import com.deepblue.shop.UnlessBusiness.Utils.Logs;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
@@ -40,6 +36,11 @@ public class CarContentAdapter extends BaseAdapter {
         this.mlist = list;
         notifyDataSetChanged();
     }
+    public void addData(ArrayList<GoodsInfo> list){
+        this.mlist.addAll(list);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public int getCount() {
@@ -61,18 +62,18 @@ public class CarContentAdapter extends BaseAdapter {
         final ViewHolder viewHolder;
         if (view == null){
             viewHolder = new ViewHolder();
-            view = LayoutInflater.from(context).inflate(R.layout.car_item_content,null);
-            viewHolder.check = (CheckBox) view.findViewById(R.id.car_checkbox);    //多选控件
-            viewHolder.goodsImg = (SimpleDraweeView) view.findViewById(R.id.car_item_content_img);  //图片
-            viewHolder.nameTxt = (TextView) view.findViewById(R.id.car_item_content_title);   //名称
-            viewHolder.priceTxt = (TextView) view.findViewById(R.id.car_item_content_price);   //价格
-            viewHolder.editText = (EditText) view.findViewById(R.id.num_textview);    //数量编辑框
-            viewHolder.addTxt = (TextView) view.findViewById(R.id.num_add_textview);   //加
-            viewHolder.DecTxt = (TextView) view.findViewById(R.id.num_desc_textview);   //减
+            view = LayoutInflater.from(context).inflate(R.layout.order_item_content,null);
+//            viewHolder.check = (CheckBox) view.findViewById(R.id.car_checkbox);    //多选控件
+            viewHolder.goodsImg = (SimpleDraweeView) view.findViewById(R.id.order_item_content_img);  //图片
+            viewHolder.nameTxt = (TextView) view.findViewById(R.id.order_item_content_title);   //名称
+            viewHolder.priceTxt = (TextView) view.findViewById(R.id.order_item_content_price);   //价格
+//            viewHolder.editText = (EditText) view.findViewById(R.id.num_textview);    //数量编辑框
+//            viewHolder.addTxt = (TextView) view.findViewById(R.id.num_add_textview);   //加
+//            viewHolder.DecTxt = (TextView) view.findViewById(R.id.num_desc_textview);   //减
 
-            viewHolder.cooperLin = (LinearLayout) view.findViewById(R.id.car_goods_cooper);   //商家名称（是否隐藏）
+            viewHolder.cooperLin = (LinearLayout) view.findViewById(R.id.order_goods_cooper);   //商家名称（是否隐藏）
             viewHolder.cooperName = (TextView) view.findViewById(R.id.cooper_name);   //商家名称
-            viewHolder.coopCheck = (CheckBox) view.findViewById(R.id.car_cooper_check);  //商家全选按钮
+//            viewHolder.coopCheck = (CheckBox) view.findViewById(R.id.car_cooper_check);  //商家全选按钮
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) view.getTag();
@@ -95,69 +96,69 @@ public class CarContentAdapter extends BaseAdapter {
 
 
 
-        viewHolder.coopCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Logs.d("coopCheck-------"+b);
-                if (b){
-                    map.put(info.getGoodsBusinessName(),info.getGoodsBusinessName());
-                }else {
-                    map.put(info.getGoodsBusinessName(),"");
+//        viewHolder.coopCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                Logs.d("coopCheck-------"+b);
+//                if (b){
+//                    map.put(info.getGoodsBusinessName(),info.getGoodsBusinessName());
+//                }else {
+//                    map.put(info.getGoodsBusinessName(),"");
+////                    sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
+//                }
+//                notifyDataSetChanged();
+//            }
+//        });
+//        viewHolder.check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//
+//                Logs.d("check-------"+b);
+//                if (b){
+//
+//                }else {
 //                    sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-                }
-                notifyDataSetChanged();
-            }
-        });
-        viewHolder.check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//
+//                }
+//            }
+//        });
 
-                Logs.d("check-------"+b);
-                if (b){
+//        if (!TextUtils.isEmpty(map.get(info.getGoodsBusinessName()))&&map.get(info.getGoodsBusinessName()).equals(info.getGoodsBusinessName())){
+//            viewHolder.coopCheck.setChecked(true);
+//            viewHolder.check.setChecked(true);
+//        } else {
+//            viewHolder.coopCheck.setChecked(false);
+//            viewHolder.check.setChecked(false);
+//        }
+//        Logs.e("iii----"+i+"----getcount()--"+getCount());
+//        Logs.d("sp.getString(SharePrenceUtil.ISALLCHECK,\"\")----"+sp.getString(SharePrenceUtil.ISALLCHECK,""));
 
-                }else {
-                    sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-
-                }
-            }
-        });
-
-        if (!TextUtils.isEmpty(map.get(info.getGoodsBusinessName()))&&map.get(info.getGoodsBusinessName()).equals(info.getGoodsBusinessName())){
-            viewHolder.coopCheck.setChecked(true);
-            viewHolder.check.setChecked(true);
-        } else {
-            viewHolder.coopCheck.setChecked(false);
-            viewHolder.check.setChecked(false);
-        }
-        Logs.e("iii----"+i+"----getcount()--"+getCount());
-        Logs.d("sp.getString(SharePrenceUtil.ISALLCHECK,\"\")----"+sp.getString(SharePrenceUtil.ISALLCHECK,""));
-
-        if (sp.getString(SharePrenceUtil.ISALLCHECK,"").equals("1")){
-            viewHolder.coopCheck.setChecked(true);
-            viewHolder.check.setChecked(true);
-            if (getCount() == i+1){
-                sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-            }
-        }else if (sp.getString(SharePrenceUtil.ISALLCHECK,"").equals("0")){
-            viewHolder.coopCheck.setChecked(false);
-            viewHolder.check.setChecked(false);
-            if (getCount() == i+1){
-                sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-            }
-        }
+//        if (sp.getString(SharePrenceUtil.ISALLCHECK,"").equals("1")){
+//            viewHolder.coopCheck.setChecked(true);
+//            viewHolder.check.setChecked(true);
+//            if (getCount() == i+1){
+//                sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
+//            }
+//        }else if (sp.getString(SharePrenceUtil.ISALLCHECK,"").equals("0")){
+//            viewHolder.coopCheck.setChecked(false);
+//            viewHolder.check.setChecked(false);
+//            if (getCount() == i+1){
+//                sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
+//            }
+//        }
 
 
         return view;
     }
 
     class ViewHolder{
-        CheckBox check,coopCheck;
+//        CheckBox check,coopCheck;
         TextView nameTxt;
         TextView priceTxt;
-        EditText editText;
+//        EditText editText;
         SimpleDraweeView goodsImg;
-        TextView addTxt;
-        TextView DecTxt;
+//        TextView addTxt;
+//        TextView DecTxt;
         LinearLayout cooperLin;
         TextView cooperName;
     }

@@ -1,15 +1,18 @@
 package com.deepblue.shop.Business.Fragment.Personal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deepblue.shop.Business.Activity.person.AllOrderActivity;
 import com.deepblue.shop.R;
 
 /**
@@ -86,8 +89,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         LinearLayout mGoodsshoucang = (LinearLayout) mView.findViewById(R.id.shoucang_goods_lin);   //商品收藏
         LinearLayout mBuessshoucang = (LinearLayout) mView.findViewById(R.id.shoucang_buess_lin);   //店铺收藏
         LinearLayout mZuji = (LinearLayout) mView.findViewById(R.id.my_zuji);    //我的足迹
+        ImageView mInfo = (ImageView) mView.findViewById(R.id.my_sms_info);   //消息
 
-
+        mInfo.setOnClickListener(this);
         mAllMoney.setOnClickListener(this);
         mAllOrder.setOnClickListener(this);
         mDaifukuan.setOnClickListener(this);
@@ -111,6 +115,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         switch (view.getId()){
             case R.id.all_order_lin:
                 Toast.makeText(getActivity(),"订单点击",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), AllOrderActivity.class);
+                startActivity(intent);
                 break;
             case R.id.all_money_lin:
                 Toast.makeText(getActivity(),"资产点击",Toast.LENGTH_SHORT).show();
@@ -153,6 +159,9 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.my_zuji:
                 Toast.makeText(getActivity(),"我的足迹",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.my_sms_info:
+                Toast.makeText(getActivity(),"消息",Toast.LENGTH_SHORT).show();
                 break;
         }
     }

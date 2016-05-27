@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
     tools:context="com.deepblue.shop.Business.Fragment.Personal.PersonFragment">
 
 
@@ -219,7 +220,7 @@
         android:background="@android:color/darker_gray"
         android:layout_below="@id/my_order_item"
         android:layout_width="match_parent"
-        android:alpha="0.2"
+        android:alpha="0.1"
         android:layout_height="@dimen/margin_10dp" />
     <RelativeLayout
         android:id="@+id/all_money_lin"
@@ -311,7 +312,7 @@
         android:background="@android:color/darker_gray"
         android:layout_below="@id/my_money_item"
         android:layout_width="match_parent"
-        android:alpha="0.2"
+        android:alpha="0.1"
         android:layout_height="@dimen/margin_10dp" />
     <RelativeLayout
         android:id="@+id/all_setting_lin"
