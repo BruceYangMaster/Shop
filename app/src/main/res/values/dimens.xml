@@ -27,4 +27,5 @@
     <!--商品详情底部的高度-->
     <dimen name="goods_comment_bottom_height">50dp</dimen>
     <!---->
+    <dimen name="user_image_top">30dp</dimen>
 </resources>
