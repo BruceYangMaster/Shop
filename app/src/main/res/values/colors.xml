@@ -19,4 +19,8 @@
     <color name="test_color_2">#F87ff0</color>
     <!--调试用的背景色3-->
     <color name="test_color_3">#F78</color>
+    <!--分割线  #F5F5F5-->
+    <color name="divider">#DDDDDD</color>
+    <!--商品详情背景 #F5F5F5-->
+    <color name="goods_detail_bg">#DDDDDD</color>
 </resources>

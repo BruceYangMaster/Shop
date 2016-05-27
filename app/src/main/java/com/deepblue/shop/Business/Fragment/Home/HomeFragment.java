@@ -234,7 +234,7 @@ public class HomeFragment extends Fragment {
      * @param view
      */
     private void initAutoVp(View view) {
-        mAutoSVP = (AutoScrollViewPager) view.findViewById(R.id.auto_viewpager);
+        mAutoSVP = (AutoScrollViewPager) view.findViewById(R.id.home_auto_viewpager);
 
         List<Adv> advList = initAutoVpData();
         mAutoAdapter = new AutoVPAdapter(getContext(), advList);

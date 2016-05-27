@@ -21,5 +21,10 @@
     <!--title标题高度 默认是48dp-只能用过顶部title和底部bar 其他的就重新定义-->
     <dimen name="title_height">48dp</dimen>
     <dimen name="title_size">20dp</dimen>
+    //
+    <!--商品详情title的高度-->
+    <dimen name="goods_comment_title_height">50dp</dimen>
+    <!--商品详情底部的高度-->
+    <dimen name="goods_comment_bottom_height">50dp</dimen>
     <!---->
 </resources>
