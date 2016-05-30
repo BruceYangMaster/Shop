@@ -20,6 +20,7 @@ import com.deepblue.shop.Business.Adapter.HomeAdapter.AutoVPAdapter;
 import com.deepblue.shop.Business.Adapter.HomeAdapter.MyRecyclerViewAdapter;
 import com.deepblue.shop.Business.Model.Adv;
 import com.deepblue.shop.Business.Model.GoodsInfo;
+import com.deepblue.shop.Business.Model.HomeMenuModel;
 import com.deepblue.shop.R;
 
 import java.util.ArrayList;
@@ -89,7 +90,36 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initWidget(view);
+        initMenuGv(view);
         return view;
+    }
+
+    /**
+     * 初始化首页广告条下面的那个gv样式的菜单
+     *
+     * @param view
+     */
+    private void initMenuGv(View view) {
+        GridView mGridView = (GridView) view.findViewById(R.id.home_menu_gv);
+        ArrayList<HomeMenuModel> menuData = initMenuData();
+
+    }
+
+    /**
+     * 得到菜单的数据
+     *
+     * @return
+     */
+    private ArrayList<HomeMenuModel> initMenuData() {
+        ArrayList<HomeMenuModel> menuDataList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            HomeMenuModel homeMenuModel = new HomeMenuModel();
+            homeMenuModel.setImgUrl("https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2568158242,2338561682&fm=80");
+            homeMenuModel.setMenuName("菜单" + i);
+            homeMenuModel.setMenuId("1");
+            menuDataList.add(homeMenuModel);
+        }
+        return menuDataList;
     }
 
     /**
