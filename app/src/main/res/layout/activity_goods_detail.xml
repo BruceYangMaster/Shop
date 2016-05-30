@@ -101,7 +101,6 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -178,7 +177,14 @@
             <include layout="@layout/goods_price_layout" />
             <!--详情优惠积分什么的layout-->
             <include layout="@layout/goods_detail_bargin_layout" />
-
+            <!--产品参数和选择尺码的layout-->
+            <include layout="@layout/goods_detail_choice_size_color_layout" />
+            <!--产品评价的layout-->
+            <include layout="@layout/goods_detail_evalution_layout" />
+            <!--店家的信息的layout-->
+            <include layout="@layout/goods_detail_store_info_layout" />
+            <!--用来抬高底部的一个layout，为了不让底部的bottom挡住他-->
+            <include layout="@layout/goods_detail_empty_layout" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
