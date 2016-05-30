@@ -24,10 +24,12 @@
             android:drawableRight="@mipmap/arrow"
             android:layout_gravity="center_vertical"/>
         <TextView
+            android:id="@+id/jiaoyizhuangtai_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="right"
+            android:textColor="@android:color/holo_red_light"
             android:layout_marginRight="@dimen/margin_10dp"
             android:text="交易成功"/>
     </LinearLayout>

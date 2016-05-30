@@ -63,17 +63,12 @@ public class CarContentAdapter extends BaseAdapter {
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.order_item_content,null);
-//            viewHolder.check = (CheckBox) view.findViewById(R.id.car_checkbox);    //多选控件
             viewHolder.goodsImg = (SimpleDraweeView) view.findViewById(R.id.order_item_content_img);  //图片
             viewHolder.nameTxt = (TextView) view.findViewById(R.id.order_item_content_title);   //名称
             viewHolder.priceTxt = (TextView) view.findViewById(R.id.order_item_content_price);   //价格
-//            viewHolder.editText = (EditText) view.findViewById(R.id.num_textview);    //数量编辑框
-//            viewHolder.addTxt = (TextView) view.findViewById(R.id.num_add_textview);   //加
-//            viewHolder.DecTxt = (TextView) view.findViewById(R.id.num_desc_textview);   //减
-
+            viewHolder.jiaoyizhuangtaiTxt = (TextView) view.findViewById(R.id.jiaoyizhuangtai_txt);   //交易状态
             viewHolder.cooperLin = (LinearLayout) view.findViewById(R.id.order_goods_cooper);   //商家名称（是否隐藏）
             viewHolder.cooperName = (TextView) view.findViewById(R.id.cooper_name);   //商家名称
-//            viewHolder.coopCheck = (CheckBox) view.findViewById(R.id.car_cooper_check);  //商家全选按钮
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) view.getTag();
@@ -94,72 +89,40 @@ public class CarContentAdapter extends BaseAdapter {
             viewHolder.cooperLin.setVisibility(View.GONE);
         }
 
+        switch (info.getType()){
+            case 1:
+                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.success);
+                break;
+            case 2:
+                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daifukuan_txt);
+                break;
+            case 3:
+                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daifahuo_txt);
+                break;
+            case 4:
+                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daishouhuo_txt);
+                break;
+            case 5:
+                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daipingjia_txt);
+                break;
+            case 6:
+                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.tuihuanhuo_txt);
+                break;
+        }
 
 
-//        viewHolder.coopCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                Logs.d("coopCheck-------"+b);
-//                if (b){
-//                    map.put(info.getGoodsBusinessName(),info.getGoodsBusinessName());
-//                }else {
-//                    map.put(info.getGoodsBusinessName(),"");
-////                    sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-//                }
-//                notifyDataSetChanged();
-//            }
-//        });
-//        viewHolder.check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//
-//                Logs.d("check-------"+b);
-//                if (b){
-//
-//                }else {
-//                    sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-//
-//                }
-//            }
-//        });
 
-//        if (!TextUtils.isEmpty(map.get(info.getGoodsBusinessName()))&&map.get(info.getGoodsBusinessName()).equals(info.getGoodsBusinessName())){
-//            viewHolder.coopCheck.setChecked(true);
-//            viewHolder.check.setChecked(true);
-//        } else {
-//            viewHolder.coopCheck.setChecked(false);
-//            viewHolder.check.setChecked(false);
-//        }
-//        Logs.e("iii----"+i+"----getcount()--"+getCount());
-//        Logs.d("sp.getString(SharePrenceUtil.ISALLCHECK,\"\")----"+sp.getString(SharePrenceUtil.ISALLCHECK,""));
-
-//        if (sp.getString(SharePrenceUtil.ISALLCHECK,"").equals("1")){
-//            viewHolder.coopCheck.setChecked(true);
-//            viewHolder.check.setChecked(true);
-//            if (getCount() == i+1){
-//                sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-//            }
-//        }else if (sp.getString(SharePrenceUtil.ISALLCHECK,"").equals("0")){
-//            viewHolder.coopCheck.setChecked(false);
-//            viewHolder.check.setChecked(false);
-//            if (getCount() == i+1){
-//                sp.edit().putString(SharePrenceUtil.ISALLCHECK,"").commit();
-//            }
-//        }
 
 
         return view;
     }
 
     class ViewHolder{
-//        CheckBox check,coopCheck;
         TextView nameTxt;
         TextView priceTxt;
-//        EditText editText;
         SimpleDraweeView goodsImg;
-//        TextView addTxt;
-//        TextView DecTxt;
         LinearLayout cooperLin;
         TextView cooperName;
+        TextView jiaoyizhuangtaiTxt;
     }
 }

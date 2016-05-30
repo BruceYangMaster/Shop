@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/grid_image_item"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/demo"/>
+    <TextView
+        android:id="@+id/grid_desc_txt_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grid_image_item"
+        android:text="写一个测试描述"
+        android:layout_margin="@dimen/margin_10dp"
+        />
+    <TextView
+        android:id="@+id/grid_price_txt_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="0.00"
+        android:textColor="@color/home_page_title_color"
+        android:layout_margin="@dimen/margin_10dp"/>
+    <ImageView
+        android:id="@+id/grid_delete_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/cancel_s"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_10dp"/>
+</RelativeLayout>

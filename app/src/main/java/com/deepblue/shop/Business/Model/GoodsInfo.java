@@ -13,6 +13,15 @@ public class GoodsInfo implements Parcelable {
     private int goodsNum;    //商品数量
     private String goodsBusinessName;   //商家名字
     private Boolean isHave;   //商家名称头判断
+    private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public Boolean getHave() {
         if (isHave == null){
@@ -75,6 +84,7 @@ public class GoodsInfo implements Parcelable {
         goodsNum = in.readInt();
         goodsBusinessName = in.readString();
         isHave = in.readByte() != 0;
+        type = in.readInt();
     }
 
     public static final Creator<GoodsInfo> CREATOR = new Creator<GoodsInfo>() {
@@ -102,5 +112,6 @@ public class GoodsInfo implements Parcelable {
         parcel.writeInt(goodsNum);
         parcel.writeString(goodsBusinessName);
         parcel.writeByte((byte) (isHave ? 1 : 0));
+        parcel.writeInt(type);
     }
 }

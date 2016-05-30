@@ -14,18 +14,19 @@
             android:background="@drawable/layout_selector"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="全部"
+            android:text="待发货"
             android:drawablePadding="@dimen/margin_10dp"
             android:drawableLeft="@mipmap/arrowfan"
             android:textColor="@color/cardview_dark_background"
             android:gravity="center_vertical"
             android:layout_marginLeft="@dimen/margin_10dp"
+
             android:textSize="@dimen/title_size"/>
         <ImageView
-            android:id="@+id/pop_item_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/more_img_selector"
+
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:padding="@dimen/margin_10dp"
@@ -33,48 +34,10 @@
             android:layout_marginRight="@dimen/margin_10dp"/>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/search_rel"
-        android:layout_below="@id/all_order_title"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/all_order_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
-            android:layout_margin="@dimen/margin_5dp"
-            android:drawableLeft="@mipmap/search"
-            android:background="@color/bg_color"
-            android:padding="@dimen/margin_10dp"
-            android:maxLength="10"
-
-            android:textSize="@dimen/margin_15dp"
-            android:singleLine="true"
-            android:hint="搜索所有订单"/>
-        <TextView
-            android:id="@+id/search_txt"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="@dimen/margin_10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="搜索"/>
-        <ImageView
-            android:id="@+id/search_cancal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/auth_btn_close"
-            android:layout_toLeftOf="@id/search_txt"
-            android:layout_centerVertical="true"
-            />
-    </RelativeLayout>
 
     <com.deepblue.shop.UnlessBusiness.Utils.me.maxwin.view.XListView
         android:id="@+id/order_listview"
-        android:layout_below="@id/search_rel"
+        android:layout_below="@id/all_order_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="#00000000"

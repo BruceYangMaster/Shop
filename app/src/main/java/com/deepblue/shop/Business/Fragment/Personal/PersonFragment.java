@@ -13,6 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deepblue.shop.Business.Activity.person.AllOrderActivity;
+import com.deepblue.shop.Business.Activity.person.BusnessCollectionActivity;
+import com.deepblue.shop.Business.Activity.person.DaiFaHuoActivity;
+import com.deepblue.shop.Business.Activity.person.DaiFuKuanActivity;
+import com.deepblue.shop.Business.Activity.person.DaiPingJiaActivity;
+import com.deepblue.shop.Business.Activity.person.DaiShouHuoActivity;
+import com.deepblue.shop.Business.Activity.person.GoodsCollectionActivity;
+import com.deepblue.shop.Business.Activity.person.MyFootActivity;
+import com.deepblue.shop.Business.Activity.person.TuiHuanHuoActivity;
 import com.deepblue.shop.R;
 
 /**
@@ -114,7 +122,6 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
 
         switch (view.getId()){
             case R.id.all_order_lin:
-                Toast.makeText(getActivity(),"订单点击",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), AllOrderActivity.class);
                 startActivity(intent);
                 break;
@@ -125,19 +132,24 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(),"设置点击",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.daifukuan_txt:
-                Toast.makeText(getActivity(),"待付款",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), DaiFuKuanActivity.class);
+                startActivity(intent);
                 break;
             case R.id.daifahuo_txt:
-                Toast.makeText(getActivity(),"待发货",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), DaiFaHuoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.daishouhuo_txt:
-                Toast.makeText(getActivity(),"待收货",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), DaiShouHuoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.daipingjia_txt:
-                Toast.makeText(getActivity(),"待评价",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), DaiPingJiaActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tuihuanhuo_txt:
-                Toast.makeText(getActivity(),"退换货",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), TuiHuanHuoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.gouwuquan_txt:
                 Toast.makeText(getActivity(),"购物券",Toast.LENGTH_SHORT).show();
@@ -152,13 +164,16 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(),"红包",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.shoucang_goods_lin:
-                Toast.makeText(getActivity(),"商品收藏",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), GoodsCollectionActivity.class);
+                startActivity(intent);
                 break;
             case R.id.shoucang_buess_lin:
-                Toast.makeText(getActivity(),"店铺收藏",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), BusnessCollectionActivity.class);
+                startActivity(intent);
                 break;
             case R.id.my_zuji:
-                Toast.makeText(getActivity(),"我的足迹",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), MyFootActivity.class);
+                startActivity(intent);
                 break;
             case R.id.my_sms_info:
                 Toast.makeText(getActivity(),"消息",Toast.LENGTH_SHORT).show();

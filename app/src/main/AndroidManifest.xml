@@ -2,15 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.deepblue.shop">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".Business.Activity.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".Business.Activity.MyApplication"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Business.Activity.MainActivity"
+        <activity
+            android:name=".Business.Activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -19,11 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Business.Activity.Basic.BasicActivity"
-            ></activity>
-        <activity android:name=".Business.Activity.person.AllOrderActivity"></activity>
+        <activity android:name=".Business.Activity.Basic.BasicActivity" />
+        <activity android:name=".Business.Activity.person.AllOrderActivity" />
         <activity android:name=".Business.Activity.Home.GoodsDetailActivity" />
-        <activity android:name=".Business.Activity.Home.SearchActivity"></activity>
+        <activity android:name=".Business.Activity.Home.SearchActivity" />
+        <activity android:name=".Business.Activity.person.DaiFaHuoActivity" />
+        <activity android:name=".Business.Activity.person.DaiFuKuanActivity" />
+        <activity android:name=".Business.Activity.person.DaiPingJiaActivity" />
+        <activity android:name=".Business.Activity.person.DaiShouHuoActivity" />
+        <activity android:name=".Business.Activity.person.TuiHuanHuoActivity" />
+        <activity android:name=".Business.Activity.person.GoodsCollectionActivity"/>
+        <activity android:name=".Business.Activity.person.BusnessCollectionActivity"/>
+        <activity android:name=".Business.Activity.person.MyFootActivity"/>
     </application>
 
 </manifest>

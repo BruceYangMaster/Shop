@@ -125,8 +125,8 @@
         android:layout_below="@id/title_myself"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_margin="@dimen/margin_10dp"
+        android:background="@drawable/layout_selector"
+        android:padding="@dimen/margin_10dp"
         >
         <TextView
             android:id="@+id/order_one"
@@ -227,7 +227,8 @@
         android:layout_below="@id/background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_10dp"
+        android:padding="@dimen/margin_10dp"
+        android:background="@drawable/layout_selector"
         >
         <TextView
             android:id="@+id/money_one"
@@ -319,7 +320,8 @@
         android:layout_below="@id/background_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_10dp"
+        android:padding="@dimen/margin_10dp"
+        android:background="@drawable/layout_selector"
         >
         <TextView
             android:id="@+id/setting_one"

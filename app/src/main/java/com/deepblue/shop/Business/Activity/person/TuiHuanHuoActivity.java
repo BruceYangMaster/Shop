@@ -1,18 +1,11 @@
 package com.deepblue.shop.Business.Activity.person;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.deepblue.shop.Business.Activity.MainActivity;
 import com.deepblue.shop.Business.Adapter.shopcaradapter.CarContentAdapter;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
@@ -21,21 +14,18 @@ import com.deepblue.shop.UnlessBusiness.Utils.me.maxwin.view.XListView;
 
 import java.util.ArrayList;
 
-public class AllOrderActivity extends Activity implements XListView.IXListViewListener{
+public class TuiHuanHuoActivity extends Activity implements XListView.IXListViewListener{
     private XListView mListView;
     private Handler mHandler;
     private CarContentAdapter mAdapter;
     private int start = 0;
     private static int refreshCnt = 0;
-    private PopupWindow mPopWindow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_order);
+        setContentView(R.layout.activity_tuihuanhuo_order);
 
         mListView = (XListView) findViewById(R.id.order_listview);
-
-
         mListView.setPullLoadEnable(true);
 
         mAdapter = new CarContentAdapter(this);
@@ -47,64 +37,6 @@ public class AllOrderActivity extends Activity implements XListView.IXListViewLi
         mListView.setXListViewListener(this);
         mHandler = new Handler();
         finishActivity();
-        popInit();
-    }
-
-    public void popInit(){
-        ImageView moreImage = (ImageView) findViewById(R.id.pop_item_img);  //更多
-        moreImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initPopView(view);
-            }
-        });
-    }
-
-    /**
-     * 初始化popWindow
-     * @param view
-     */
-    public void initPopView(View view){
-        if (mPopWindow == null) {
-            View contentView = LayoutInflater.from(this).inflate(R.layout.item_popwindow_friend, null);
-            mPopWindow = new PopupWindow(contentView,
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
-            mPopWindow.setBackgroundDrawable(new BitmapDrawable());
-            contentView.findViewById(R.id.sms_pop).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(AllOrderActivity.this, MainActivity.class));
-                    mPopWindow.dismiss();
-                }
-            });
-            contentView.findViewById(R.id.search_pop).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(AllOrderActivity.this, MainActivity.class));
-
-                    mPopWindow.dismiss();
-                }
-            });
-            contentView.findViewById(R.id.firstpage_pop).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(AllOrderActivity.this, MainActivity.class);
-
-                    startActivity(intent);
-                    mPopWindow.dismiss();
-                }
-            });
-        }
-        mPopWindow.setOutsideTouchable(true);
-//                mPopWindow.showAsDropDown(view, 100, 10);
-        if (mPopWindow.isShowing()) {
-            mPopWindow.dismiss();
-        } else {
-            mPopWindow.showAsDropDown(view, 20, 0);
-
-        }
-
     }
 
     /**
@@ -166,7 +98,7 @@ public class AllOrderActivity extends Activity implements XListView.IXListViewLi
             info.setGoodsUrl("http://img4.duitang.com/uploads/item/201301/26/20130126225257_QkaSQ.thumb.600_0.jpeg");
             if (i== 0){
                 info.setHave(true);
-                info.setType(1);
+                info.setType(6);
             }
             listInfo.add(info);
         }
@@ -179,7 +111,7 @@ public class AllOrderActivity extends Activity implements XListView.IXListViewLi
             info.setGoodsUrl("http://life.xiancn.com/images/site2/20100414/e4e30fd40f281c0d71103bf79ff00e2b.jpg");
             if (i== 0){
                 info.setHave(true);
-                info.setType(1);
+                info.setType(6);
             }
             listInfo.add(info);
         }

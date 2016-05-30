@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/all_order_title"
+        android:layout_width="match_parent"
+        android:background="@color/bg_color"
+        android:layout_height="@dimen/title_height">
+        <TextView
+            android:id="@+id/back_txt"
+            android:background="@drawable/layout_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="退换货"
+            android:drawablePadding="@dimen/margin_10dp"
+            android:drawableLeft="@mipmap/arrowfan"
+            android:textColor="@color/cardview_dark_background"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:textSize="@dimen/title_size"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/tm_actionbar_btn_more"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin_10dp"
+
+            android:layout_marginRight="@dimen/margin_10dp"/>
+    </RelativeLayout>
+
+
+    <com.deepblue.shop.UnlessBusiness.Utils.me.maxwin.view.XListView
+        android:id="@+id/order_listview"
+        android:layout_below="@id/all_order_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#ebebeb"
+        android:groupIndicator="@null"
+        android:dividerHeight="2dp"
+        android:footerDividersEnabled="false"/>
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <RelativeLayout
+        android:id="@+id/all_order_title"
+        android:layout_width="match_parent"
+        android:background="@color/bg_color"
+        android:layout_height="@dimen/title_height">
+        <TextView
+            android:id="@+id/back_txt"
+            android:background="@drawable/layout_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="商品收藏"
+            android:drawablePadding="@dimen/margin_10dp"
+            android:drawableLeft="@mipmap/arrowfan"
+            android:textColor="@color/cardview_dark_background"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:textSize="@dimen/title_size"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/pop_item_img"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/more_img_selector"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:padding="@dimen/margin_10dp"-->
+
+            <!--android:layout_marginRight="@dimen/margin_10dp"/>-->
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/collection_grid"
+        android:layout_below="@id/all_order_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"></GridView>
+</RelativeLayout>
