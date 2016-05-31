@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title_relat"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height">
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/goods_detail_btn_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_txt"
+            android:text="@string/jifen_txt"
+            android:textSize="@dimen/title_size"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/point_info"
+        android:layout_below="@id/title_relat"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <ImageView
+            android:id="@+id/icon_image_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/title_size"
+            android:src="@mipmap/head"/>
+        <TextView
+            android:id="@+id/point_name"
+            android:text="@string/my_point"
+            android:layout_toRightOf="@id/icon_image_point"
+            android:layout_margin="@dimen/title_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon_image_point"
+            android:text="20"
+            android:layout_margin="@dimen/title_size"
+            android:layout_below="@id/point_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/point_rule"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/title_size"
+            />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/point_list"
+        android:layout_below="@id/point_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

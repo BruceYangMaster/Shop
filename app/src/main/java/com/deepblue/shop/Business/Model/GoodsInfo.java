@@ -13,7 +13,26 @@ public class GoodsInfo implements Parcelable {
     private int goodsNum;    //商品数量
     private String goodsBusinessName;   //商家名字
     private Boolean isHave;   //商家名称头判断
-    private int type;
+    private int type;     //订单的时候类型判断
+
+    private String pointTime;   //积分时间
+    private int pointNum;   //积分数量
+
+    public String getPointTime() {
+        return pointTime;
+    }
+
+    public void setPointTime(String pointTime) {
+        this.pointTime = pointTime;
+    }
+
+    public int getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(int pointNum) {
+        this.pointNum = pointNum;
+    }
 
     public int getType() {
         return type;

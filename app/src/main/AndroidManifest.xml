@@ -30,9 +30,10 @@
         <activity android:name=".Business.Activity.person.DaiPingJiaActivity" />
         <activity android:name=".Business.Activity.person.DaiShouHuoActivity" />
         <activity android:name=".Business.Activity.person.TuiHuanHuoActivity" />
-        <activity android:name=".Business.Activity.person.GoodsCollectionActivity"/>
-        <activity android:name=".Business.Activity.person.BusnessCollectionActivity"/>
-        <activity android:name=".Business.Activity.person.MyFootActivity"/>
+        <activity android:name=".Business.Activity.person.GoodsCollectionActivity" />
+        <activity android:name=".Business.Activity.person.BusnessCollectionActivity" />
+        <activity android:name=".Business.Activity.person.MyFootActivity" />
+        <activity android:name=".Business.Activity.person.PointActivity"></activity>
     </application>
 
 </manifest>

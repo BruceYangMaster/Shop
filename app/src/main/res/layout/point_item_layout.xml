@@ -4,34 +4,33 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/grid_image_item"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:adjustViewBounds="true"
-        android:src="@mipmap/demo"/>
-    <TextView
-        android:id="@+id/grid_desc_txt_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/grid_image_item"
-        android:text="写一个测试描述"
-        android:layout_margin="@dimen/margin_10dp"
-        />
-    <TextView
-        android:id="@+id/grid_price_txt_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/grid_desc_txt_item"
-        android:text="0.00"
-        android:textColor="@color/home_page_title_color"
+        android:id="@+id/point_item_img"
+        android:src="@mipmap/ic_launcher"
         android:layout_margin="@dimen/margin_10dp"/>
-    <ImageView
-        android:id="@+id/grid_delete_image"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/cancel_s"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/point_item_title"
+        android:text="积分描述"
+        android:layout_toRightOf="@id/point_item_img"
+        android:layout_margin="@dimen/margin_10dp"
+        android:maxEms="12"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_item_time"
+        android:text="05-20"
         android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_change_num"
+        android:text="+20"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/point_item_time"
         android:layout_margin="@dimen/margin_10dp"/>
 </RelativeLayout>

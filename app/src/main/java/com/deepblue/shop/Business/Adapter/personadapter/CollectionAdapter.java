@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
 
@@ -43,7 +44,7 @@ public class CollectionAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if (view == null){
             viewHolder = new ViewHolder();
@@ -56,8 +57,24 @@ public class CollectionAdapter extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) view.getTag();
         }
+        GoodsInfo info = (GoodsInfo) getItem(i);
+        Glide.with(context).load(info.getGoodsUrl()).placeholder(R.mipmap.loading_small_icon).into(viewHolder.goodsImage);
 
-        return null;
+        viewHolder.deacTxt.setText(info.getGoodsTitle());
+        if (info.getGoodsPrice() !=0){
+            viewHolder.priceTxt.setText("￥"+info.getGoodsPrice());
+        }else {
+            viewHolder.priceTxt.setVisibility(View.GONE);
+        }
+        viewHolder.delImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mList.remove(i);
+                notifyDataSetChanged();
+            }
+        });
+
+        return view;
     }
 
     class ViewHolder{
