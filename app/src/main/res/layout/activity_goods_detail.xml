@@ -167,8 +167,7 @@
                 <android.support.v4.view.ViewPager
                     android:id="@+id/goods_detail_vp"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:background="@color/colorPrimary" />
+                    android:layout_height="350dp" />
 
             </FrameLayout>
             <!--商品名称-->
