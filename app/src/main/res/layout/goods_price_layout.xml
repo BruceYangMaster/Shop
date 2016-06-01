@@ -16,6 +16,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/old_price_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="159"
@@ -32,10 +33,10 @@
                     android:text="价格" />
 
                 <TextView
+                    android:id="@+id/now_price_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="150"
-
                     android:textColor="@color/colorAccent" />
             </LinearLayout>
         </LinearLayout>
@@ -55,18 +56,21 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/kuaidi_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="快递：12.0" />
 
         <TextView
+            android:id="@+id/yuexiaoliang_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="月销5笔" />
 
         <TextView
+            android:id="@+id/shagnjiadizhi_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
