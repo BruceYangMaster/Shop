@@ -15,8 +15,10 @@ import android.widget.TextView;
 import com.deepblue.shop.Business.Model.bean.GoodsBean;
 import com.deepblue.shop.Business.Model.bean.StoreBean;
 import com.deepblue.shop.R;
+import com.deepblue.shop.UnlessBusiness.Utils.Logs;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +31,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     List<Map<String, Object>> parentMapList;
     List<List<Map<String, Object>>> childMapList_list;
     Context context;
+    private ArrayList<String> name = new ArrayList<>();
     int totalCount = 0;
     double totalPrice = 0.00;
     public static final String EDITING = "编辑";
@@ -176,6 +179,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //            childViewHolder.id_ed_count = (EditText) convertView.findViewById(R.id.num_textview);
             childViewHolder.id_iv_add = (TextView) convertView.findViewById(R.id.num_add_textview);   //加
             childViewHolder.id_iv_reduce = (TextView) convertView.findViewById(R.id.num_desc_textview);  //减
+            childViewHolder.id_tv_goods_delete = (TextView) convertView.findViewById(R.id.car_delete_img);   //删除
 
             convertView.setTag(childViewHolder);
         } else {
@@ -250,8 +254,13 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
                 dealReduce(goodsBean);
             }
         });
-
-
+        childViewHolder.id_tv_goods_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //  Toast.makeText(context, "删除商品：" + goodsBean.getName(), Toast.LENGTH_SHORT).show();
+                removeOneGood(groupPosition, childPosition);
+            }
+        });
         return convertView;
     }
 
@@ -263,16 +272,22 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 
     //供全选按钮调用
     public void setupAllChecked(boolean isChecked) {
-
         for (int i = 0; i < parentMapList.size(); i++) {
             StoreBean storeBean = (StoreBean) parentMapList.get(i).get("parentName");
             storeBean.setIsChecked(isChecked);
+
+            String parent = storeBean.getName();
+            if (!name.contains(parent))
+                name.add(parent);    //保存店名，以判断是否分别付款
 
             List<Map<String, Object>> childMapList = childMapList_list.get(i);
             for (int j = 0; j < childMapList.size(); j++) {
                 GoodsBean goodsBean = (GoodsBean) childMapList.get(j).get("childName");
                 goodsBean.setIsChecked(isChecked);
             }
+        }
+        if (!isChecked){
+            name.clear();
         }
         notifyDataSetChanged();
         dealPrice();
@@ -281,6 +296,14 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     private void setupOneParentAllChildChecked(boolean isChecked, int groupPosition) {
         StoreBean storeBean = (StoreBean) parentMapList.get(groupPosition).get("parentName");
         storeBean.setIsChecked(isChecked);
+        String parent = storeBean.getName();
+        if (isChecked){
+            if (!name.contains(parent))
+                name.add(parent);
+        }else {
+            if (name.contains(parent))
+                name.remove(parent);
+        }
 
         List<Map<String, Object>> childMapList = childMapList_list.get(groupPosition);
         for (int j = 0; j < childMapList.size(); j++) {
@@ -292,7 +315,17 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public boolean dealOneParentAllChildIsChecked(int groupPosition) {
-        // StoreBean storeBean= (StoreBean) parentMapList.get(groupPosition).get("parentName");
+         StoreBean storeBean= (StoreBean) parentMapList.get(groupPosition).get("parentName");
+        String parent = storeBean.getName();
+//        if (storeBean.isChecked()){
+            if (!name.contains(parent))
+                name.add(parent);
+//        }else {
+//            if (name.contains(parent))
+//                name.remove(parent);
+//        }
+        Logs.d("name------4444--"+name);//  此处保存下来之后不能移除，待思考，但绝大多数情况下仍可正常运行
+
         List<Map<String, Object>> childMapList = childMapList_list.get(groupPosition);
         for (int j = 0; j < childMapList.size(); j++) {
             GoodsBean goodsBean = (GoodsBean) childMapList.get(j).get("childName");
@@ -304,6 +337,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public boolean dealAllParentIsChecked() {
+
         for (int i = 0; i < parentMapList.size(); i++) {
             StoreBean storeBean = (StoreBean) parentMapList.get(i).get("parentName");
             if (!storeBean.isChecked()) {
@@ -333,8 +367,9 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 
             }
         }
+        Logs.w("name--22--"+name);
         //计算回调
-        onGoodsCheckedChangeListener.onGoodsCheckedChange(totalCount, totalPrice);
+        onGoodsCheckedChangeListener.onGoodsCheckedChange(totalCount, totalPrice,name);
     }
 
     //供总编辑按钮调用
@@ -487,7 +522,6 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         } else {
             onCheckHasGoodsListener.onCheckHasGoods(false);//
         }
-        //showList("after@@@@@@@@@@@@@@@@@@@@@@@");
         notifyDataSetChanged();//
         dealPrice();//重新计算
     }
@@ -529,7 +563,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public interface OnGoodsCheckedChangeListener {
-        void onGoodsCheckedChange(int totalCount, double totalPrice);
+        void onGoodsCheckedChange(int totalCount, double totalPrice,ArrayList<String> nameList);
     }
 
     public interface OnCheckHasGoodsListener {
@@ -561,7 +595,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //        TextView id_tv_count_now;
         TextView id_tv_price_now;
 //        TextView id_tv_goods_star;
-//        TextView id_tv_goods_delete;
+        TextView id_tv_goods_delete;
 
     }
 

@@ -22,6 +22,7 @@ import com.deepblue.shop.Business.Activity.person.GoodsCollectionActivity;
 import com.deepblue.shop.Business.Activity.person.MyFootActivity;
 import com.deepblue.shop.Business.Activity.person.PointActivity;
 import com.deepblue.shop.Business.Activity.person.TuiHuanHuoActivity;
+import com.deepblue.shop.Business.Activity.person.YouHuiQuanActivity;
 import com.deepblue.shop.R;
 
 /**
@@ -156,7 +157,8 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(),"购物券",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.youhuiquan_txt:
-                Toast.makeText(getActivity(),"优惠券",Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), YouHuiQuanActivity.class);
+                startActivity(intent);
                 break;
             case R.id.jifen_txt:
                 intent = new Intent(getContext(), PointActivity.class);

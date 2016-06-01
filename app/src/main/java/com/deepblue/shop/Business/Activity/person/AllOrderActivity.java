@@ -90,7 +90,7 @@ public class AllOrderActivity extends Activity implements XListView.IXListViewLi
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(AllOrderActivity.this, MainActivity.class);
-
+                    MainActivity.isFirst = true;
                     startActivity(intent);
                     mPopWindow.dismiss();
                 }

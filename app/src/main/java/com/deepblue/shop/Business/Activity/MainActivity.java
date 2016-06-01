@@ -1,9 +1,5 @@
 package com.deepblue.shop.Business.Activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
@@ -18,10 +14,10 @@ import com.deepblue.shop.Business.Fragment.Home.HomeFragment;
 import com.deepblue.shop.Business.Fragment.Personal.PersonFragment;
 import com.deepblue.shop.Business.Fragment.ShoppingCar.ShoppingCarFragmentTwo;
 import com.deepblue.shop.R;
-import com.deepblue.shop.UnlessBusiness.Utils.Logs;
 
 public class MainActivity extends BasicActivity {
-    public static final String BROADCAST = "com.deepblue.shop.main";
+    public static Boolean isFirst = false;   //判断是否跳转回首页的标记
+    private FragmentTabHost tabHost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +41,7 @@ public class MainActivity extends BasicActivity {
 
 
     public void initTab(){
-        FragmentTabHost tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         //使用fragment代替activity转换实现
         tabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
@@ -57,31 +53,15 @@ public class MainActivity extends BasicActivity {
     }
     @Override
     protected void onResume() {
-        IntentFilter filter=new IntentFilter();
-        filter.addAction(BROADCAST);
-        registerReceiver(broadcastReceiver, filter);
         super.onResume();
-
-    }
-
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        unregisterReceiver(broadcastReceiver);
-        super.onDestroy();
-        Logs.e("onDestroy---");
-    }
-
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Logs.e("111111111111111111");
+        if (isFirst){
+            tabHost.setCurrentTab(0);
+            isFirst = false;
         }
-    };
+
+    }
+
+
+
+
 }

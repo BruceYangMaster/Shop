@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:adjustViewBounds="true"
+    android:id="@+id/coupon_item_img"
+    android:src="@mipmap/ic_launcher"
+    android:layout_margin="@dimen/margin_10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/coupon_item_title"
+        android:text="优惠券"
+        android:layout_toRightOf="@id/coupon_item_img"
+        android:layout_margin="@dimen/margin_10dp"
+        android:maxEms="12"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/coupon_item_time"
+        android:layout_margin="@dimen/margin_10dp"
+        android:textSize="@dimen/margin_10dp"
+        android:layout_below="@id/coupon_item_title"
+        android:layout_toRightOf="@+id/coupon_item_img"
+        android:text="使用期限2016.02.20-2016.03.25"/>
+
+    <LinearLayout
+        android:id="@+id/coupon_lin"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:background="@color/home_page_title_color"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+        <TextView
+            android:id="@+id/coupon_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textColor="@color/bg_color"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/coupon_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满80使用"
+            android:textColor="@color/bg_color"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>

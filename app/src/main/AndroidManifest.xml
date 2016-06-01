@@ -33,7 +33,8 @@
         <activity android:name=".Business.Activity.person.GoodsCollectionActivity" />
         <activity android:name=".Business.Activity.person.BusnessCollectionActivity" />
         <activity android:name=".Business.Activity.person.MyFootActivity" />
-        <activity android:name=".Business.Activity.person.PointActivity"></activity>
+        <activity android:name=".Business.Activity.person.PointActivity" />
+        <activity android:name=".Business.Activity.person.YouHuiQuanActivity"></activity>
     </application>
 
 </manifest>

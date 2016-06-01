@@ -7,16 +7,50 @@ import android.os.Parcelable;
  * Created by 欢大哥 on 2016/5/23.
  */
 public class GoodsInfo implements Parcelable {
-    private String goodsUrl;    //商品图片
-    private String goodsTitle;   //商品名称
+    private String goodsUrl;    //商品(积分、优惠券等)图片
+    private String goodsTitle;   //商品(积分、优惠券等)名称
     private double goodsPrice;   //商品价格
     private int goodsNum;    //商品数量
     private String goodsBusinessName;   //商家名字
     private Boolean isHave;   //商家名称头判断
     private int type;     //订单的时候类型判断
 
+    /**
+     * 积分
+     */
     private String pointTime;   //积分时间
     private int pointNum;   //积分数量
+
+    /**
+     * 优惠券
+     */
+    private String couponTime;   //优惠券使用期限
+    private int couponPrice;    //优惠券使用金额
+    private String couponLimit;  //优惠券使用权限
+
+    public String getCouponTime() {
+        return couponTime;
+    }
+
+    public void setCouponTime(String couponTime) {
+        this.couponTime = couponTime;
+    }
+
+    public int getCouponPrice() {
+        return couponPrice;
+    }
+
+    public void setCouponPrice(int couponPrice) {
+        this.couponPrice = couponPrice;
+    }
+
+    public String getCouponLimit() {
+        return couponLimit;
+    }
+
+    public void setCouponLimit(String couponLimit) {
+        this.couponLimit = couponLimit;
+    }
 
     public String getPointTime() {
         return pointTime;

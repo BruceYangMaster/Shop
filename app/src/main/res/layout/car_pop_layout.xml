@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/car_pop_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请分开结算一下商品"
+        android:gravity="center"
+        android:padding="@dimen/margin_15dp"
+        />
+    <com.deepblue.shop.Business.CustomView.MyListView
+        android:id="@+id/car_my_list"
+        android:layout_below="@id/car_pop_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>
