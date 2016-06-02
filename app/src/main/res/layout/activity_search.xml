@@ -11,20 +11,24 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/search_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/goods_detail_btn_back" />
 
         <EditText
+            android:id="@+id/search_et"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:singleLine="true" />
 
-        <TextView
+        <Button
+            android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:padding="15dp"
             android:text="搜索" />
     </LinearLayout>
@@ -34,7 +38,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <GridLayout
+        <com.zhy.view.flowlayout.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="6">
@@ -54,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="测试一下" />
 
-        </GridLayout>
+        </com.zhy.view.flowlayout.FlowLayout>
 
 
     </LinearLayout>
