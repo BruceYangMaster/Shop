@@ -34,7 +34,8 @@
         <activity android:name=".Business.Activity.person.BusnessCollectionActivity" />
         <activity android:name=".Business.Activity.person.MyFootActivity" />
         <activity android:name=".Business.Activity.person.PointActivity" />
-        <activity android:name=".Business.Activity.person.YouHuiQuanActivity"></activity>
+        <activity android:name=".Business.Activity.person.YouHuiQuanActivity" />
+        <activity android:name=".Business.Activity.other.OrderSureActivity"></activity>
     </application>
 
 </manifest>

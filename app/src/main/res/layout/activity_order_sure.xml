@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/sure_order_title"
+        android:layout_width="match_parent"
+        android:background="@color/bg_color"
+        android:layout_height="@dimen/title_height">
+        <TextView
+            android:id="@+id/back_txt"
+            android:background="@drawable/layout_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="订单确认"
+            android:drawablePadding="@dimen/margin_10dp"
+            android:drawableLeft="@mipmap/arrowfan"
+            android:textColor="@color/cardview_dark_background"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin_10dp"
+            android:textSize="@dimen/title_size"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sure_order_address"
+        android:layout_below="@id/sure_order_title"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/sure_loction_img"
+            android:src="@mipmap/localtion"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/sure_name"
+            android:layout_toRightOf="@id/sure_loction_img"
+            android:layout_margin="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收货人：gg"/>
+        <TextView
+            android:id="@+id/sure_phone"
+            android:layout_toRightOf="@id/sure_name"
+            android:layout_margin="@dimen/margin_10dp"
+            android:text="电话：12345678901"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/sure_address_txt"
+            android:layout_toRightOf="@id/sure_loction_img"
+            android:text="收货地址"
+            android:layout_below="@id/sure_name"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/margin_10dp"
+            android:src="@mipmap/ic_right_icon"/>
+    </RelativeLayout>
+</RelativeLayout>

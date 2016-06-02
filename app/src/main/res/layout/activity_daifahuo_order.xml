@@ -19,7 +19,7 @@
             android:drawableLeft="@mipmap/arrowfan"
             android:textColor="@color/cardview_dark_background"
             android:gravity="center_vertical"
-            android:layout_marginLeft="@dimen/margin_10dp"
+            android:padding="@dimen/margin_10dp"
 
             android:textSize="@dimen/title_size"/>
         <ImageView

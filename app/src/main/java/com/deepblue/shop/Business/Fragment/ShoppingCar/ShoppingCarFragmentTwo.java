@@ -1,18 +1,21 @@
 package com.deepblue.shop.Business.Fragment.ShoppingCar;
 
+import android.content.Intent;
+import android.graphics.drawable.PaintDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ExpandableListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deepblue.shop.Business.Activity.other.OrderSureActivity;
 import com.deepblue.shop.Business.Adapter.shopcaradapter.MyBaseExpandableListAdapter;
 import com.deepblue.shop.Business.Model.bean.GoodsBean;
 import com.deepblue.shop.Business.Model.bean.StoreBean;
@@ -40,7 +43,7 @@ public class ShoppingCarFragmentTwo extends Fragment {
     private TextView mTotalPrice;
     private CheckBox mAllCheck;
     private TextView mGotoPay;
-    private ArrayList<String> mNamelist;
+    private ArrayList<String> mNamelist;   //店铺存储
     MyBaseExpandableListAdapter myBaseExpandableListAdapter;
     ExpandableListView expandableListView;
     //定义父列表项List数据集合
@@ -112,9 +115,11 @@ public class ShoppingCarFragmentTwo extends Fragment {
 
                 if (mNamelist != null&&mNamelist.size()>1){
                     Toast.makeText(getActivity(),"去结算,多商家存在，弹出pop",Toast.LENGTH_SHORT).show();
-                    getPopupWindow(view);   //是否弹出对话框
+//                    getPopupWindow(view);   //是否弹出对话框
+                    initPopWindow(view);   //是否弹出对话框
                 }else if (mNamelist != null&&mNamelist.size()==1){
-                    Toast.makeText(getActivity(),"去结算,只有一个商家，可直接结算",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), OrderSureActivity.class);
+                    startActivity(intent);
                 }else {
                     Toast.makeText(getActivity(),"不能去结算,请选择结算商品",Toast.LENGTH_SHORT).show();
                 }
@@ -255,31 +260,43 @@ public class ShoppingCarFragmentTwo extends Fragment {
 
         // 创建PopupWindow实例,200,LayoutParams.MATCH_PARENT分别是宽度和高度
         popupWindow = new PopupWindow(popupWindow_view, ViewGroup.LayoutParams.MATCH_PARENT, 500, true);
+
+        //设置点击返回键消失
+        popupWindow.setBackgroundDrawable(new PaintDrawable());
+
         // 设置动画效果
         popupWindow.setAnimationStyle(R.style.mypopwindow_anim_style);
         popupWindow.showAtLocation(v, Gravity.BOTTOM,0,0);
         // 点击其他地方消失
-        popupWindow_view.setOnTouchListener(new View.OnTouchListener() {
+//        popupWindow_view.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                Logs.e("12222222222222");
+//                if (popupWindow != null && popupWindow.isShowing()) {
+//                    Logs.e("1111111111111");
+//                    popupWindow.dismiss();
+//                    popupWindow = null;
+//                }
+//                return false;
+//            }
+//        });
+
+        //产生背景变暗效果
+        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+        lp.alpha = 0.8f;
+        getActivity().getWindow().setAttributes(lp);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
-                if (popupWindow != null && popupWindow.isShowing()) {
-                    popupWindow.dismiss();
-                    popupWindow = null;
-                }
-                return false;
+            public void onDismiss() {
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                lp.alpha = 1f;
+                getActivity().getWindow().setAttributes(lp);
             }
         });
+
+
     }
-    /***
-     * 获取PopupWindow实例
-     */
-    private void getPopupWindow(View v) {
-        if (null != popupWindow) {
-            popupWindow.dismiss();
-            return;
-        } else {
-            initPopWindow(v);
-        }
-    }
+
+
+
 }
