@@ -1,5 +1,6 @@
 package com.deepblue.shop.Business.Activity.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -91,11 +92,11 @@ public class GoodsDetailActivity extends AppCompatActivity {
         findViewById(R.id.commodity_buy_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(GoodsDetailActivity.this, EnsureOrderDetailActivity.class);
+                startActivity(intent);
             }
         });
     }
-
     /**
      * vp下面的内容，例如参数，销量等
      */
