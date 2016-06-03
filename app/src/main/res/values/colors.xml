@@ -23,5 +23,7 @@
     <color name="divider">#DDDDDD</color>
     <!--商品详情背景 #F5F5F5-->
     <color name="goods_detail_bg">#DDDDDD</color>
-    <color name="user_background">	#d0d0d0</color>
+    <color name="user_background">#d0d0d0</color>
+    <!--提交订单的btn背景色-->
+    <color name="commit_order_btn_red">#E74F74</color>
 </resources>
