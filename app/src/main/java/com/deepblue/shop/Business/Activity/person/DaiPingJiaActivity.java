@@ -105,6 +105,9 @@ public class DaiPingJiaActivity extends Activity implements XListView.IXListView
                 info.setHave(true);
                 info.setType(5);
             }
+            if (i == 2){
+                info.setIsEndType(5);
+            }
             listInfo.add(info);
         }
         for (int i = 0;i<3;i++){
@@ -117,6 +120,9 @@ public class DaiPingJiaActivity extends Activity implements XListView.IXListView
             if (i== 0){
                 info.setHave(true);
                 info.setType(5);
+            }
+            if (i == 2){
+                info.setIsEndType(5);
             }
             listInfo.add(info);
         }

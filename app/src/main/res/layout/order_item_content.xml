@@ -34,6 +34,7 @@
             android:text="交易成功"/>
     </LinearLayout>
     <RelativeLayout
+        android:id="@+id/order_content"
         android:layout_below="@id/order_goods_cooper"
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -63,5 +64,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+        <TextView
+            android:id="@+id/order_item_content_num"
+            android:text="x1"
+            android:layout_margin="@dimen/margin_10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/order_total_relat"
+        android:layout_below="@id/order_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/order_total_price"
+            android:text="合计：24.00"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/order_total_num"
+            android:text="共1件商品  "
+            android:layout_toLeftOf="@id/order_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/order_status_lin"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:visibility="gone"
+        android:layout_below="@id/order_total_relat"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/order_see_log"
+            android:text="查看物流"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/order_delete"
+            android:text="删除订单"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/order_pingjia"
+            android:text="评价"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/order_sure_goods"
+            android:text="确认收货"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/order_cancal"
+            android:text="取消订单"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/order_pay_money"
+            android:text="付款"
+            android:visibility="gone"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </RelativeLayout>

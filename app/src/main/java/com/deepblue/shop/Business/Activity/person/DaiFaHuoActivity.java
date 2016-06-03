@@ -100,18 +100,24 @@ public class DaiFaHuoActivity extends Activity implements XListView.IXListViewLi
                 info.setHave(true);
                 info.setType(3);
             }
+            if (i==2){
+                info.setIsEndType(3);
+            }
             listInfo.add(info);
         }
         for (int i = 0;i<3;i++){
             GoodsInfo info = new GoodsInfo();
             info.setGoodsBusinessName("电商平台2");
-            info.setGoodsNum(1);
+            info.setGoodsNum(2);
             info.setGoodsPrice(345.00);
             info.setGoodsTitle("重庆老火锅");
             info.setGoodsUrl("http://life.xiancn.com/images/site2/20100414/e4e30fd40f281c0d71103bf79ff00e2b.jpg");
             if (i== 0){
                 info.setHave(true);
                 info.setType(3);
+            }
+            if (i==2){
+                info.setIsEndType(3);
             }
             listInfo.add(info);
         }

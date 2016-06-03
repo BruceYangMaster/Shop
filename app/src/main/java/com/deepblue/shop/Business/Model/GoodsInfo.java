@@ -14,6 +14,9 @@ public class GoodsInfo implements Parcelable {
     private String goodsBusinessName;   //商家名字
     private Boolean isHave;   //商家名称头判断
     private int type;     //订单的时候类型判断
+    private int isEndType;   //是否是本商家最后一个商品
+
+
 
     /**
      * 积分
@@ -127,6 +130,14 @@ public class GoodsInfo implements Parcelable {
         this.goodsBusinessName = goodsBusinessName;
     }
 
+    public int getIsEndType() {
+        return isEndType;
+    }
+
+    public void setIsEndType(int isEndType) {
+        this.isEndType = isEndType;
+    }
+
     public GoodsInfo(){
 
     }
@@ -138,6 +149,7 @@ public class GoodsInfo implements Parcelable {
         goodsBusinessName = in.readString();
         isHave = in.readByte() != 0;
         type = in.readInt();
+        isEndType = in.readInt();
     }
 
     public static final Creator<GoodsInfo> CREATOR = new Creator<GoodsInfo>() {
@@ -166,5 +178,6 @@ public class GoodsInfo implements Parcelable {
         parcel.writeString(goodsBusinessName);
         parcel.writeByte((byte) (isHave ? 1 : 0));
         parcel.writeInt(type);
+        parcel.writeInt(isEndType);
     }
 }

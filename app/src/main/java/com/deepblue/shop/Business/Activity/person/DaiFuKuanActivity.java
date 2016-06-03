@@ -100,6 +100,9 @@ public class DaiFuKuanActivity extends Activity implements XListView.IXListViewL
                 info.setHave(true);
                 info.setType(2);
             }
+            if (i == 2){
+                info.setIsEndType(2);
+            }
             listInfo.add(info);
         }
         for (int i = 0;i<3;i++){
@@ -112,6 +115,9 @@ public class DaiFuKuanActivity extends Activity implements XListView.IXListViewL
             if (i== 0){
                 info.setHave(true);
                 info.setType(2);
+            }
+            if (i == 2){
+                info.setIsEndType(2);
             }
             listInfo.add(info);
         }
