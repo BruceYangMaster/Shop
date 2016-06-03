@@ -87,7 +87,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="￥59" />
+                    android:text="￥59"
+                    android:textColor="@color/commit_order_btn_red" />
             </LinearLayout>
 
         </LinearLayout>
