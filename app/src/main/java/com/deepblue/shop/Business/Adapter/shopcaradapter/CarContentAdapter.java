@@ -1,6 +1,7 @@
 package com.deepblue.shop.Business.Adapter.shopcaradapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -11,8 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.deepblue.shop.Business.Activity.other.OrderThingActivity;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
+import com.deepblue.shop.UnlessBusiness.Utils.Logs;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
@@ -60,6 +63,7 @@ public class CarContentAdapter extends BaseAdapter {
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.order_item_content,null);
+            viewHolder.contentRelat = (RelativeLayout) view.findViewById(R.id.order_content);   //内容布局
             viewHolder.goodsImg = (SimpleDraweeView) view.findViewById(R.id.order_item_content_img);  //图片
             viewHolder.nameTxt = (TextView) view.findViewById(R.id.order_item_content_title);   //名称
             viewHolder.priceTxt = (TextView) view.findViewById(R.id.order_item_content_price);   //价格
@@ -93,6 +97,17 @@ public class CarContentAdapter extends BaseAdapter {
         viewHolder.nameTxt.setText(info.getGoodsTitle());
         viewHolder.priceTxt.setText("￥"+info.getGoodsPrice());
         viewHolder.goodsNumTxt.setText("x"+info.getGoodsNum());
+        viewHolder.contentRelat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Logs.w("info----"+info.getGoodsTitle());
+                Intent intent = new Intent(context, OrderThingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
+            }
+        });
+
         //设置商家平台，区分不同商家
         if (info.getHave()){
             viewHolder.cooperLin.setVisibility(View.VISIBLE);
@@ -177,7 +192,7 @@ public class CarContentAdapter extends BaseAdapter {
         LinearLayout cooperLin;
         TextView cooperName;
         TextView jiaoyizhuangtaiTxt;
-        RelativeLayout totalRelat;
+        RelativeLayout totalRelat,contentRelat;
         TextView totalNum;
         TextView totalPrice;
         LinearLayout orderStatusLin;
