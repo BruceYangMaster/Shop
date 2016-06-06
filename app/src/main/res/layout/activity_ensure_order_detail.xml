@@ -14,6 +14,7 @@
             android:layout_height="50dp">
 
             <LinearLayout
+                android:id="@+id/back_layout"
                 android:layout_width="50dp"
                 android:layout_height="match_parent">
 
@@ -72,6 +73,7 @@
                     android:text="共" />
 
                 <TextView
+                    android:id="@+id/goods_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -84,6 +86,7 @@
                     android:text="件,总金额" />
 
                 <TextView
+                    android:id="@+id/order_pay_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -108,6 +111,68 @@
         android:layout_height="match_parent"
         android:layout_above="@id/commit_order_layout"
         android:layout_below="@id/ensure_title_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--收货人地址-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/order_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_launcher" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="收货人：马云" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="12345678911" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="水电费了客户收到了房交会的快乐时就会发生的的设计和反馈技术的回复" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="(收货不便时，可选择代收货服务)"
+                        android:textColor="@android:color/holo_red_dark" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_launcher" />
+            </LinearLayout>
+        </LinearLayout>
+
 
     </ScrollView>
 </RelativeLayout>
