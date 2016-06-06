@@ -28,7 +28,6 @@
         android:id="@+id/sure_order_address"
         android:layout_below="@id/sure_order_title"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/sure_loction_img"

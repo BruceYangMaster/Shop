@@ -8,11 +8,13 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.deepblue.shop.Business.Activity.MainActivity;
+import com.deepblue.shop.Business.Activity.other.OrderThingActivity;
 import com.deepblue.shop.Business.Adapter.shopcaradapter.CarContentAdapter;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
@@ -48,7 +50,9 @@ public class AllOrderActivity extends Activity implements XListView.IXListViewLi
         mHandler = new Handler();
         finishActivity();
         popInit();
+//        listItemOnClick();
     }
+
 
     public void popInit(){
         ImageView moreImage = (ImageView) findViewById(R.id.pop_item_img);  //更多
@@ -56,6 +60,21 @@ public class AllOrderActivity extends Activity implements XListView.IXListViewLi
             @Override
             public void onClick(View view) {
                 initPopView(view);
+            }
+        });
+    }
+
+    /**
+     * list点击事件
+     */
+    public void listItemOnClick(){
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                GoodsInfo info = (GoodsInfo) mAdapter.getItem(i-1);
+                Intent intent = new Intent(AllOrderActivity.this, OrderThingActivity.class);
+                startActivity(intent);
             }
         });
     }
