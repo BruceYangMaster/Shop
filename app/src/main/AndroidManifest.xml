@@ -37,7 +37,8 @@
         <activity android:name=".Business.Activity.person.YouHuiQuanActivity" />
         <activity android:name=".Business.Activity.other.OrderSureActivity" />
         <activity android:name=".Business.Activity.Home.EnsureOrderDetailActivity" />
-        <activity android:name=".Business.Activity.other.OrderThingActivity"></activity>
+        <activity android:name=".Business.Activity.other.OrderThingActivity" />
+        <activity android:name=".Business.Activity.Home.ShowImageActivity"></activity>
     </application>
 
 </manifest>
