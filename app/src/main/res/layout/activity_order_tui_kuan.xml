@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/tuikuan_thing_title"
+        android:layout_width="match_parent"
+        android:background="@color/bg_color"
+        android:layout_height="@dimen/title_height">
+        <TextView
+            android:id="@+id/back_txt"
+            android:background="@drawable/layout_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="退款详情"
+            android:drawablePadding="@dimen/margin_10dp"
+            android:drawableLeft="@mipmap/arrowfan"
+            android:textColor="@color/cardview_dark_background"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin_10dp"
+            android:textSize="@dimen/title_size"/>
+        <ImageView
+            android:id="@+id/pop_item_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more_img_selector"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tuikuan_status"
+        android:layout_below="@id/tuikuan_thing_title"
+        android:text="退款成功"
+        android:drawableLeft="@mipmap/ic_checked"
+        android:drawablePadding="@dimen/margin_10dp"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tuikuan_money"
+        android:text="@string/tuikuan_money"
+        android:layout_below="@id/tuikuan_status"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_time"
+        android:text="@string/tuikuan_money"
+        android:layout_below="@id/tuikuan_money"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_see_money"
+        android:text="@string/tuikuan_direction"
+        android:layout_below="@id/tuikuan_time"
+        android:gravity="center"
+        android:padding="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:id="@+id/tuikuan_consult_relat"
+        android:layout_below="@id/tuikuan_see_money"
+        android:layout_width="match_parent"
+        android:padding="@dimen/margin_10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="协商详情"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_right_icon"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tuikuan_busness_name"
+        android:text="@string/tuikuan_busness"
+        android:layout_below="@id/tuikuan_consult_relat"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_type"
+        android:text="@string/tuikuan_leixing"
+        android:layout_below="@id/tuikuan_busness_name"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_money_two"
+        android:text="@string/tuikuan_money"
+        android:layout_below="@id/tuikuan_type"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_reason"
+        android:text="@string/tuikuan_reason"
+        android:layout_below="@id/tuikuan_money_two"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_function"
+        android:text="@string/tuikuan_function"
+        android:layout_below="@id/tuikuan_reason"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_num"
+        android:text="@string/tuikuan_num"
+        android:layout_below="@id/tuikuan_function"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/apply_time"
+        android:text="@string/apply_time"
+        android:layout_below="@id/tuikuan_num"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tuikuan_help"
+        android:text="@string/need_help"
+        android:drawableLeft="@mipmap/tm_dialog_default_icon"
+        android:drawablePadding="@dimen/margin_5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

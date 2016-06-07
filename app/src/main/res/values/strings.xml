@@ -31,4 +31,15 @@
     <string name="success">交易成功</string>
     <string name="my_point">我的积分</string>
     <string name="point_rule">积分规则</string>
+    <string name="tuikuan_price">退款金额</string>
+    <string name="tuikuan_time">退款时间</string>
+    <string name="tuikuan_busness">店铺名称</string>
+    <string name="tuikuan_leixing">退款类型</string>
+    <string name="tuikuan_money">退款金额</string>
+    <string name="tuikuan_reason">退款原因</string>
+    <string name="tuikuan_function">退款说明</string>
+    <string name="tuikuan_num">退款编号</string>
+    <string name="apply_time">申请时间</string>
+    <string name="tuikuan_direction">查看钱款去向</string>
+    <string name="need_help">需要帮助</string>
 </resources>

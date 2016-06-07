@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
-import com.deepblue.shop.Business.Adapter.shopcaradapter.CarContentAdapter;
+import com.deepblue.shop.Business.Adapter.personadapter.OrderTuiKuanAdapter;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
 import com.deepblue.shop.UnlessBusiness.Utils.Logs;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class TuiHuanHuoActivity extends Activity implements XListView.IXListViewListener{
     private XListView mListView;
     private Handler mHandler;
-    private CarContentAdapter mAdapter;
+    private OrderTuiKuanAdapter mAdapter;
     private int start = 0;
     private static int refreshCnt = 0;
     @Override
@@ -28,7 +28,7 @@ public class TuiHuanHuoActivity extends Activity implements XListView.IXListView
         mListView = (XListView) findViewById(R.id.order_listview);
         mListView.setPullLoadEnable(true);
 
-        mAdapter = new CarContentAdapter(this);
+        mAdapter = new OrderTuiKuanAdapter(this);
         mAdapter.setData(initCarData());
         mListView.setAdapter(mAdapter);
 
