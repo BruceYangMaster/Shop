@@ -37,17 +37,12 @@
         <activity android:name=".Business.Activity.person.YouHuiQuanActivity" />
         <activity android:name=".Business.Activity.other.OrderSureActivity" />
         <activity android:name=".Business.Activity.Home.EnsureOrderDetailActivity" />
-<<<<<<< Updated upstream
-        <activity android:name=".Business.Activity.other.OrderThingActivity"/>
+
+        <activity android:name=".Business.Activity.other.OrderThingActivity" />
         <activity android:name=".Business.Activity.other.OrderTuiKuanActivity" />
-        <activity android:name=".Business.Activity.person.SettingActivity"/>
-        <activity android:name=".Business.Activity.Home.ShowImageActivity"/>
-=======
-        <activity android:name=".Business.Activity.other.OrderThingActivity"></activity>
-        <activity android:name=".Business.Activity.other.OrderTuiKuanActivity" />
-        <activity android:name=".Business.Activity.person.SettingActivity"></activity>
-        <activity android:name=".Business.Activity.Home.ShowImageActivity"></activity>
->>>>>>> Stashed changes
+        <activity android:name=".Business.Activity.person.SettingActivity" />
+        <activity android:name=".Business.Activity.Home.ShowImageActivity" />
+
     </application>
 
 </manifest>
