@@ -1,15 +1,17 @@
 package com.deepblue.shop.Business.Adapter.HomeAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.deepblue.shop.Business.Activity.Home.ShowImageActivity;
 import com.deepblue.shop.UnlessBusiness.Utils.DensityUtils;
+import com.deepblue.shop.UnlessBusiness.Utils.ShowImageInstance;
 
 import java.util.ArrayList;
 
@@ -28,7 +30,7 @@ public class GoodsDetailVpAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         /**
          * 初始化imageview
          */
@@ -43,7 +45,10 @@ public class GoodsDetailVpAdapter extends PagerAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "点击跳到链接", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, ShowImageActivity.class);
+                intent.putStringArrayListExtra(ShowImageInstance.SHOWIMAGE, mGoodsList);
+                intent.putExtra(ShowImageInstance.CURRENT_POSITION, position);
+                mContext.startActivity(intent);
             }
         });
         return imageView;

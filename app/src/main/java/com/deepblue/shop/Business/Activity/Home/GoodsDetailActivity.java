@@ -30,12 +30,22 @@ public class GoodsDetailActivity extends AppCompatActivity {
      * 初始化控件
      */
     private void initWidget() {
+        initTitle();
         //顶上的vp
         initVp();
         //vp下面的内容
         initContent();
         //点击购买和购物车的PopWindow
         initPop();
+    }
+
+    private void initTitle() {
+        findViewById(R.id.goods_detail_back_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**
@@ -97,6 +107,7 @@ public class GoodsDetailActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * vp下面的内容，例如参数，销量等
      */
@@ -115,10 +126,15 @@ public class GoodsDetailActivity extends AppCompatActivity {
      * 初始化价钱和销量产地，运费
      */
     private void initPriceSaleNumProduct() {
+        //旧的价格
         TextView oldPriceTv = (TextView) findViewById(R.id.old_price_tv);
+        //现在的价格
         TextView nowPriceTv = (TextView) findViewById(R.id.now_price_tv);
+        //快递费
         TextView kuaidiTv = (TextView) findViewById(R.id.kuaidi_tv);
+        //月销量
         TextView yuexiaoliangTv = (TextView) findViewById(R.id.yuexiaoliang_tv);
+        //商家地址
         TextView shagnjiadizhiTv = (TextView) findViewById(R.id.shagnjiadizhi_tv);
     }
 
@@ -154,6 +170,7 @@ public class GoodsDetailActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.goods_detail_vp);
         GoodsDetailVpAdapter goodsDetailAdapter = new GoodsDetailVpAdapter(this, goodsList);
         viewPager.setAdapter(goodsDetailAdapter);
+        //
     }
 
     /**
