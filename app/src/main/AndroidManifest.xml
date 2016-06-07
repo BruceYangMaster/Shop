@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Business.Activity.Basic.BasicActivity" />
         <activity android:name=".Business.Activity.person.AllOrderActivity" />
         <activity android:name=".Business.Activity.Home.GoodsDetailActivity" />
@@ -37,10 +38,10 @@
         <activity android:name=".Business.Activity.person.YouHuiQuanActivity" />
         <activity android:name=".Business.Activity.other.OrderSureActivity" />
         <activity android:name=".Business.Activity.Home.EnsureOrderDetailActivity" />
-        <activity android:name=".Business.Activity.other.OrderThingActivity"/>
+        <activity android:name=".Business.Activity.other.OrderThingActivity" />
         <activity android:name=".Business.Activity.other.OrderTuiKuanActivity" />
-        <activity android:name=".Business.Activity.person.SettingActivity"/>
-        <activity android:name=".Business.Activity.Home.ShowImageActivity"/>
+        <activity android:name=".Business.Activity.person.SettingActivity" />
+        <activity android:name=".Business.Activity.Home.ShowImageActivity" />
     </application>
 
 </manifest>
