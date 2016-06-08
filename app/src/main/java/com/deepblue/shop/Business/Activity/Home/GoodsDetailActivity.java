@@ -30,13 +30,25 @@ public class GoodsDetailActivity extends AppCompatActivity {
      * 初始化控件
      */
     private void initWidget() {
+//        initMainViewPager();
+
         initTitle();
+        //点击购买和购物车的PopWindow
+        initPop();
+    }
+
+    private void initOneView() {
         //顶上的vp
         initVp();
         //vp下面的内容
         initContent();
-        //点击购买和购物车的PopWindow
-        initPop();
+    }
+
+    /**
+     * 用来初始化主的vp
+     */
+    private void initMainViewPager() {
+        initOneView();
     }
 
     private void initTitle() {

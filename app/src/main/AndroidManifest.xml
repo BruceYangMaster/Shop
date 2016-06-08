@@ -43,6 +43,8 @@
         <activity android:name=".Business.Activity.Home.ShowImageActivity" />
         <activity android:name=".Business.Activity.person.BodyInfoActivity" />
         <activity android:name=".Business.Activity.person.AddressActivity"></activity>
+        <activity android:name=".Business.Activity.person.SettingActivity" />
+        <activity android:name=".Business.Activity.Home.ShowImageActivity" />
     </application>
 
 </manifest>

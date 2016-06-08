@@ -102,7 +102,6 @@ public class HomeFragment extends Fragment {
     private void initMenuGv(View view) {
         GridView mGridView = (GridView) view.findViewById(R.id.home_menu_gv);
         ArrayList<HomeMenuModel> menuData = initMenuData();
-
     }
 
     /**
