@@ -114,26 +114,6 @@ public class OrderTuiKuanAdapter extends BaseAdapter {
         if (info.getType() == 6){
             viewHolder.jiaoyizhuangtaiTxt.setText(R.string.tuihuanhuo_txt);
         }
-//        switch (info.getType()){
-//            case 1:
-//                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.success);
-//                break;
-//            case 2:
-//                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daifukuan_txt);
-//                break;
-//            case 3:
-//                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daifahuo_txt);
-//                break;
-//            case 4:
-//                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daishouhuo_txt);
-//                break;
-//            case 5:
-//                viewHolder.jiaoyizhuangtaiTxt.setText(R.string.daipingjia_txt);
-//                break;
-//            case 6:
-//
-//                break;
-//        }
 
         if (info.getIsEndType() == 6){
             viewHolder.totalRelat.setVisibility(View.VISIBLE);
@@ -142,51 +122,6 @@ public class OrderTuiKuanAdapter extends BaseAdapter {
             viewHolder.totalRelat.setVisibility(View.GONE);
             viewHolder.orderStatusLin.setVisibility(View.GONE);
         }
-//        switch (info.getIsEndType()){
-//            //交易成功
-//            case 1:
-//                viewHolder.totalRelat.setVisibility(View.VISIBLE);
-//                viewHolder.orderStatusLin.setVisibility(View.VISIBLE);
-//                viewHolder.deleteTxt.setVisibility(View.VISIBLE);
-//                viewHolder.pingjiaTxt.setVisibility(View.VISIBLE);
-//                break;
-//            //待付款
-//            case 2:
-//                viewHolder.totalRelat.setVisibility(View.VISIBLE);
-//                viewHolder.orderStatusLin.setVisibility(View.VISIBLE);
-//                viewHolder.cancalTxt.setVisibility(View.VISIBLE);
-//                viewHolder.payMoneyTxt.setVisibility(View.VISIBLE);
-//                break;
-//            //待发货
-//            case 3:
-//                viewHolder.totalRelat.setVisibility(View.VISIBLE);
-//                viewHolder.orderStatusLin.setVisibility(View.VISIBLE);
-//                break;
-//            //待收货
-//            case 4:
-//                viewHolder.totalRelat.setVisibility(View.VISIBLE);
-//                viewHolder.orderStatusLin.setVisibility(View.VISIBLE);
-//                viewHolder.seeLogTxt.setVisibility(View.VISIBLE);
-//                viewHolder.sureTxt.setVisibility(View.VISIBLE);
-//                break;
-//            //待评价
-//            case 5:
-//                viewHolder.totalRelat.setVisibility(View.VISIBLE);
-//                viewHolder.orderStatusLin.setVisibility(View.VISIBLE);
-//                viewHolder.deleteTxt.setVisibility(View.VISIBLE);
-//                viewHolder.seeLogTxt.setVisibility(View.VISIBLE);
-//                viewHolder.pingjiaTxt.setVisibility(View.VISIBLE);
-//                break;
-//            //退换货
-//            case 6:
-//                viewHolder.totalRelat.setVisibility(View.VISIBLE);
-//                viewHolder.orderStatusLin.setVisibility(View.VISIBLE);
-//                break;
-//            default:
-//                viewHolder.totalRelat.setVisibility(View.GONE);
-//                viewHolder.orderStatusLin.setVisibility(View.GONE);
-//                break;
-//        }
 
         return view;
     }

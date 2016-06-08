@@ -9,21 +9,21 @@ import android.widget.TextView;
 
 import com.deepblue.shop.R;
 
-public class SettingActivity extends AppCompatActivity implements View.OnClickListener{
+public class BodyInfoActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_body_info);
         initWight();
     }
-
     public void initWight(){
         TextView mBack = (TextView) findViewById(R.id.back_txt);
-        RelativeLayout mBodyInfo = (RelativeLayout) findViewById(R.id.person_info_relat);
 
+        RelativeLayout mAddess = (RelativeLayout) findViewById(R.id.address_relat);
+
+        mAddess.setOnClickListener(this);
         mBack.setOnClickListener(this);
-        mBodyInfo.setOnClickListener(this);
 
     }
 
@@ -33,8 +33,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.back_txt:
                 finish();
                 break;
-            case R.id.person_info_relat:
-                Intent intent = new Intent(this,BodyInfoActivity.class);
+            case R.id.address_relat:
+                Intent intent = new Intent(this,AddressActivity.class);
                 startActivity(intent);
                 break;
         }
