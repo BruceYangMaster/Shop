@@ -13,11 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deepblue.shop.Business.Adapter.HomeAdapter.GoodsDetailVpAdapter;
+import com.deepblue.shop.Business.Adapter.HomeAdapter.GoodsMainAdapter;
 import com.deepblue.shop.R;
 
 import java.util.ArrayList;
 
 public class GoodsDetailActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +32,67 @@ public class GoodsDetailActivity extends AppCompatActivity {
      * 初始化控件
      */
     private void initWidget() {
-//        initMainViewPager();
-
+        initMainViewPager();
         initTitle();
         //点击购买和购物车的PopWindow
         initPop();
     }
 
-    private void initOneView() {
+    private void initOneView(View oneView) {
         //顶上的vp
-        initVp();
+        initVp(oneView);
         //vp下面的内容
-        initContent();
+        initContent(oneView);
     }
 
     /**
      * 用来初始化主的vp
      */
     private void initMainViewPager() {
-        initOneView();
+        /**
+         * 把三个view添加到vp
+         */
+        addViewToVp();
+
+    }
+
+    /**
+     * 讲三个view左右滑动的view，添加到主vp上
+     */
+    private void addViewToVp() {
+        View oneView = LayoutInflater.from(this).inflate(R.layout.view_goods_detail_one, null);
+        View twoView = LayoutInflater.from(this).inflate(R.layout.view_goods_detail_two, null);
+        View threeView = LayoutInflater.from(this).inflate(R.layout.view_goods_detail_three, null);
+        //主vp，三个view都是添加在上面的
+        ViewPager mainVp = (ViewPager) findViewById(R.id.goods_detail_viewpager);
+        /**
+         * list（里面是三个view）
+         *
+         */
+        ArrayList<View> viewArrayList = new ArrayList<>();
+        viewArrayList.add(oneView);
+        viewArrayList.add(twoView);
+        viewArrayList.add(threeView);
+        /**
+         * 初始化适配器，讲控件vp绑定到适配器上
+         */
+        GoodsMainAdapter goodsMainAdapter = new GoodsMainAdapter(viewArrayList, this);
+        mainVp.setAdapter(goodsMainAdapter);
+
+        /**
+         * 用来初始化三个view
+         */
+        initOneView(oneView);
+        initTwoView();
+        initThreeView();
+    }
+
+    private void initThreeView() {
+
+    }
+
+    private void initTwoView() {
+
     }
 
     private void initTitle() {
@@ -123,47 +167,47 @@ public class GoodsDetailActivity extends AppCompatActivity {
     /**
      * vp下面的内容，例如参数，销量等
      */
-    private void initContent() {
+    private void initContent(View oneView) {
         /**
          * 初始化商品详情名字和分享
          */
-        initGoodsDetailNameAndShare();
+        initGoodsDetailNameAndShare(oneView);
         /**
          * 初始化价钱和销量产地，运费
          */
-        initPriceSaleNumProduct();
+        initPriceSaleNumProduct(oneView);
     }
 
     /**
      * 初始化价钱和销量产地，运费
      */
-    private void initPriceSaleNumProduct() {
+    private void initPriceSaleNumProduct(View oneView) {
         //旧的价格
-        TextView oldPriceTv = (TextView) findViewById(R.id.old_price_tv);
+        TextView oldPriceTv = (TextView) oneView.findViewById(R.id.old_price_tv);
         //现在的价格
-        TextView nowPriceTv = (TextView) findViewById(R.id.now_price_tv);
+        TextView nowPriceTv = (TextView) oneView.findViewById(R.id.now_price_tv);
         //快递费
-        TextView kuaidiTv = (TextView) findViewById(R.id.kuaidi_tv);
+        TextView kuaidiTv = (TextView) oneView.findViewById(R.id.kuaidi_tv);
         //月销量
-        TextView yuexiaoliangTv = (TextView) findViewById(R.id.yuexiaoliang_tv);
+        TextView yuexiaoliangTv = (TextView) oneView.findViewById(R.id.yuexiaoliang_tv);
         //商家地址
-        TextView shagnjiadizhiTv = (TextView) findViewById(R.id.shagnjiadizhi_tv);
+        TextView shagnjiadizhiTv = (TextView) oneView.findViewById(R.id.shagnjiadizhi_tv);
     }
 
     /**
      * 初始化商品详情名字和分享
      */
-    private void initGoodsDetailNameAndShare() {
+    private void initGoodsDetailNameAndShare(View oneView) {
         /**
          * 商品详情的名字
          */
-        TextView goodsDetailNameTv = (TextView) findViewById(R.id.goods_detail_name_tv);
+        TextView goodsDetailNameTv = (TextView) oneView.findViewById(R.id.goods_detail_name_tv);
         String goodsDetailNameStr = "衣品天成 2016夏装新款 男士休闲裤 时尚潮流直筒青年休闲长裤男";
         goodsDetailNameTv.setText(goodsDetailNameStr);
         /**
          * 分享商品
          */
-        findViewById(R.id.goods_share_layout).setOnClickListener(new View.OnClickListener() {
+        oneView.findViewById(R.id.goods_share_layout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(GoodsDetailActivity.this, "分享商品", Toast.LENGTH_SHORT).show();
@@ -174,12 +218,12 @@ public class GoodsDetailActivity extends AppCompatActivity {
     /**
      * 初始化vp，这个是展示商品图片的一个控件
      */
-    private void initVp() {
+    private void initVp(View oneView) {
         /**
          * 首先得到数据
          */
         ArrayList<String> goodsList = getVpData();
-        ViewPager viewPager = (ViewPager) findViewById(R.id.goods_detail_vp);
+        ViewPager viewPager = (ViewPager) oneView.findViewById(R.id.goods_detail_vp);
         GoodsDetailVpAdapter goodsDetailAdapter = new GoodsDetailVpAdapter(this, goodsList);
         viewPager.setAdapter(goodsDetailAdapter);
         //

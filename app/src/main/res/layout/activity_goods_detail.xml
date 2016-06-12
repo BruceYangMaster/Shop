@@ -151,6 +151,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/goods_detail_bottom_layout"
-        android:layout_below="@id/goods_detail_title_layout"
-        android:background="@color/test_color_2" />
+        android:layout_below="@id/goods_detail_title_layout" />
 </RelativeLayout>
