@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.deepblue.shop.Business.CustomView.MyDialog;
 import com.deepblue.shop.R;
 
 public class BodyInfoActivity extends AppCompatActivity implements View.OnClickListener{
@@ -19,12 +20,12 @@ public class BodyInfoActivity extends AppCompatActivity implements View.OnClickL
     }
     public void initWight(){
         TextView mBack = (TextView) findViewById(R.id.back_txt);
-
+        RelativeLayout mHeadImgae = (RelativeLayout) findViewById(R.id.person_image_relat);
         RelativeLayout mAddess = (RelativeLayout) findViewById(R.id.address_relat);
 
         mAddess.setOnClickListener(this);
         mBack.setOnClickListener(this);
-
+        mHeadImgae.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +38,17 @@ public class BodyInfoActivity extends AppCompatActivity implements View.OnClickL
                 Intent intent = new Intent(this,AddressActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.person_image_relat:
+                dialogInfo();
+                break;
         }
+    }
+
+    /**
+     * 自定义对话框信息
+     */
+    public void dialogInfo(){
+        MyDialog myDialog = new MyDialog(this,R.layout.head_image_item,R.style.myDialog);
+        myDialog.show();
     }
 }

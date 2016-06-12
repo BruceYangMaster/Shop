@@ -41,7 +41,7 @@ public class AddressAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.address_item,null);
@@ -49,6 +49,7 @@ public class AddressAdapter extends BaseAdapter {
             viewHolder.name = (TextView) view.findViewById(R.id.address_name);
             viewHolder.address = (TextView) view.findViewById(R.id.address_txt);
             viewHolder.phone = (TextView) view.findViewById(R.id.address_phone);
+            viewHolder.delete = (TextView) view.findViewById(R.id.address_delete);
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) view.getTag();
@@ -57,6 +58,14 @@ public class AddressAdapter extends BaseAdapter {
         viewHolder.phone.setText(user.getUserPhone());
         viewHolder.name.setText(user.getUserName());
         viewHolder.address.setText(user.getUserAddress());
+
+        viewHolder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mList.remove(i);
+                notifyDataSetChanged();
+            }
+        });
         return view;
     }
 
@@ -64,6 +73,7 @@ public class AddressAdapter extends BaseAdapter {
         TextView name;
         TextView address;
         TextView phone;
+        TextView delete;
 
     }
 }

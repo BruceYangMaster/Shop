@@ -44,7 +44,7 @@
         android:id="@+id/order_thing_icon"
         android:background="@color/home_page_title_color"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="120dp">
         <TextView
             android:id="@+id/order_thing_status"
             android:layout_width="wrap_content"

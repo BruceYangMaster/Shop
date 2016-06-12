@@ -13,8 +13,8 @@ import android.view.WindowManager;
  */
 public class MyDialog extends Dialog {
 
-    private static int default_width = 160; //默认宽度
-    private static int default_height = 120;//默认高度
+    private static int default_width = 200; //默认宽度
+    private static int default_height = 160;//默认高度
 
 //    public MyDialog(Context context) {
 //        super(context);

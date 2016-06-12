@@ -8,11 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
+    <!-- popwindow动画属性 -->
     <style name="mypopwindow_anim_style">
         <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
         <!-- 指定显示的动画xml -->
         <item name="android:windowExitAnimation">@anim/pophidden_anim</item>
         <!-- 指定消失的动画xml -->
+    </style>
+
+    <!-- 自定义dialog -->
+    <style name="myDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

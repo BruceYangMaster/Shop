@@ -11,23 +11,20 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.deepblue.shop.Business.Activity.other.OrderThingActivity;
 import com.deepblue.shop.Business.Model.GoodsInfo;
 import com.deepblue.shop.R;
-import com.deepblue.shop.UnlessBusiness.Utils.Logs;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by 欢大哥 on 2016/5/23.
  */
 public class CarContentAdapter extends BaseAdapter {
     private Context context;
-    private String cooperNameStr;
-    private HashMap<String ,String > map = new HashMap<>();
     private ArrayList<GoodsInfo> mlist;
     public CarContentAdapter(Context context){
         this.context = context;
@@ -100,13 +97,49 @@ public class CarContentAdapter extends BaseAdapter {
         viewHolder.contentRelat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Logs.w("info----"+info.getGoodsTitle());
                 Intent intent = new Intent(context, OrderThingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
             }
         });
+        viewHolder.deleteTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"删除",Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.cancalTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"取消",Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.payMoneyTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"付款",Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.pingjiaTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"评价",Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.seeLogTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"查看物流",Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.sureTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"确认收货",Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         //设置商家平台，区分不同商家
         if (info.getHave()){
