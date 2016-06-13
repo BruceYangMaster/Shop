@@ -80,6 +80,5 @@
         android:cacheColorHint="#00000000"
         android:divider="#ebebeb"
         android:groupIndicator="@null"
-        android:dividerHeight="2dp"
         android:footerDividersEnabled="false"/>
 </RelativeLayout>

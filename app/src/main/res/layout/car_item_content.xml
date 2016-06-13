@@ -51,6 +51,15 @@
         android:layout_marginLeft="@dimen/margin_10dp"
         android:text="这是一个测试数据"/>
     <TextView
+        android:id="@+id/car_item_content_description"
+        android:layout_below="@id/car_item_content_title"
+        android:layout_toRightOf="@id/car_item_content_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:text="商品属性"/>
+    <TextView
         android:id="@+id/car_item_content_price"
         android:layout_toRightOf="@id/car_item_content_img"
         android:layout_alignParentBottom="true"

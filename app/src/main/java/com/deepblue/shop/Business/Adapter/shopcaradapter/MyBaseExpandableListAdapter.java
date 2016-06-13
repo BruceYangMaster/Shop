@@ -166,8 +166,8 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 
             childViewHolder.id_im_image  = (SimpleDraweeView) convertView.findViewById(R.id.car_item_content_img);  //图片
             //常规下：
-//            childViewHolder.tv_items_child_desc = (TextView) convertView
-//                    .findViewById(R.id.tv_items_child_desc);    //此处后面再写（描述）
+            childViewHolder.tv_items_child_desc = (TextView) convertView
+                    .findViewById(R.id.car_item_content_description);    //此处后面再写（描述）
             childViewHolder.id_tv_price = (TextView) convertView
                     .findViewById(R.id.car_item_content_price);
 
@@ -207,7 +207,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //        childViewHolder.id_tv_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置中划线并抗锯齿
 
 //        childViewHolder.id_tv_discount_price.setText(String.format(context.getString(R.string.price), goodsBean.getDiscountPrice()));
-//        childViewHolder.tv_items_child_desc.setText(String.valueOf(goodsBean.getDesc()));
+        childViewHolder.tv_items_child_desc.setText(String.valueOf(goodsBean.getDesc())+"没有描述数据");
 
 //        childViewHolder.id_tv_count.setText(String.format(context.getString(R.string.good_count), goodsBean.getCount()));
 //        childViewHolder.id_tv_count_now.setText(String.valueOf(goodsBean.getCount()));
@@ -264,6 +264,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    //item元素是可点击的返回true
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         // return false;
@@ -286,8 +287,8 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
                 goodsBean.setIsChecked(isChecked);
             }
         }
+        name.clear();
         if (!isChecked){
-            name.clear();
         }
         notifyDataSetChanged();
         dealPrice();
@@ -317,14 +318,9 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     public boolean dealOneParentAllChildIsChecked(int groupPosition) {
          StoreBean storeBean= (StoreBean) parentMapList.get(groupPosition).get("parentName");
         String parent = storeBean.getName();
-//        if (storeBean.isChecked()){
             if (!name.contains(parent))
                 name.add(parent);
-//        }else {
-//            if (name.contains(parent))
-//                name.remove(parent);
-//        }
-        Logs.d("name------4444--"+name);//  此处保存下来之后不能移除，待思考，但绝大多数情况下仍可正常运行
+        Logs.d("name------4444--"+name);//  此处保存下来之后不能移除，待思考，但绝大多数情况下仍可正常运行(是否为多商家付款判断)
 
         List<Map<String, Object>> childMapList = childMapList_list.get(groupPosition);
         for (int j = 0; j < childMapList.size(); j++) {
@@ -582,7 +578,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 //        LinearLayout id_ll_normal;
 //        LinearLayout id_ll_edtoring;
 
-//        TextView tv_items_child_desc;
+        TextView tv_items_child_desc;
         TextView id_tv_price;
 //        TextView id_tv_discount_price;
         TextView id_tv_count;

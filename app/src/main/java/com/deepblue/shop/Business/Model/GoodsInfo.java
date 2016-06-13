@@ -15,7 +15,7 @@ public class GoodsInfo implements Parcelable {
     private Boolean isHave;   //商家名称头判断
     private int type;     //订单的时候类型判断
     private int isEndType;   //是否是本商家最后一个商品
-
+    private String goodsDescroption;  //商品描述
 
 
     /**
@@ -30,6 +30,14 @@ public class GoodsInfo implements Parcelable {
     private String couponTime;   //优惠券使用期限
     private int couponPrice;    //优惠券使用金额
     private String couponLimit;  //优惠券使用权限
+
+    public String getGoodsDescroption() {
+        return goodsDescroption;
+    }
+
+    public void setGoodsDescroption(String goodsDescroption) {
+        this.goodsDescroption = goodsDescroption;
+    }
 
     public String getCouponTime() {
         return couponTime;
@@ -150,6 +158,7 @@ public class GoodsInfo implements Parcelable {
         isHave = in.readByte() != 0;
         type = in.readInt();
         isEndType = in.readInt();
+        goodsDescroption = in.readString();
     }
 
     public static final Creator<GoodsInfo> CREATOR = new Creator<GoodsInfo>() {
@@ -179,5 +188,6 @@ public class GoodsInfo implements Parcelable {
         parcel.writeByte((byte) (isHave ? 1 : 0));
         parcel.writeInt(type);
         parcel.writeInt(isEndType);
+        parcel.writeString(goodsDescroption);
     }
 }

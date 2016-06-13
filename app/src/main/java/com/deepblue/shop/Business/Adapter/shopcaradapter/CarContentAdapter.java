@@ -68,6 +68,7 @@ public class CarContentAdapter extends BaseAdapter {
             viewHolder.cooperLin = (LinearLayout) view.findViewById(R.id.order_goods_cooper);   //商家名称（是否隐藏）
             viewHolder.cooperName = (TextView) view.findViewById(R.id.cooper_name);   //商家名称
             viewHolder.goodsNumTxt = (TextView) view.findViewById(R.id.order_item_content_num);   //商品数量
+            viewHolder.goodsDescTxt = (TextView) view.findViewById(R.id.order_item_content_decroption);   //商品描述
 
             viewHolder.totalRelat = (RelativeLayout) view.findViewById(R.id.order_total_relat);  //总价layout
             viewHolder.totalNum = (TextView) view.findViewById(R.id.order_total_num);    //总数
@@ -94,6 +95,7 @@ public class CarContentAdapter extends BaseAdapter {
         viewHolder.nameTxt.setText(info.getGoodsTitle());
         viewHolder.priceTxt.setText("￥"+info.getGoodsPrice());
         viewHolder.goodsNumTxt.setText("x"+info.getGoodsNum());
+        viewHolder.goodsDescTxt.setText("这是商品描述，自己设置");
         viewHolder.contentRelat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -228,5 +230,6 @@ public class CarContentAdapter extends BaseAdapter {
         TextView cancalTxt;
         TextView payMoneyTxt;
         TextView goodsNumTxt;
+        TextView goodsDescTxt;
     }
 }
