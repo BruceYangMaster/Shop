@@ -36,30 +36,69 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <!--<com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout"
+                zhy:max_select="-1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+            </com.zhy.view.flowlayout.TagFlowLayout>
+        支持属性：
+        max_select：-1为不限制选择数量，>=1的数字为控制选择tag的数量
+        auto_select_effect 是否开启默认的选中效果，
+        即为selector中设置的效果，默认为true；如果设置为false，
+        则无选中效果，需要自己在回调中处理。-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.zhy.view.flowlayout.FlowLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="历史搜索" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/is_hava_history_tv"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="暂无搜索历史" />
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/search_flow_history_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="6">
+            android:minHeight="150dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="测试一下" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="热门搜索" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="测试一下" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="测试一下" />
-
-        </com.zhy.view.flowlayout.FlowLayout>
-
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/search_flow_hot_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="150dp" />
 
     </LinearLayout>
 </LinearLayout>
