@@ -178,11 +178,23 @@ public class SearchActivity extends AppCompatActivity {
         /**
          * 搜索编辑框
          */
-        EditText searchEt = (EditText) findViewById(R.id.search_et);
+        final EditText searchEt = (EditText) findViewById(R.id.search_et);
+
         /**
          * 点击搜索按钮
          */
         Button searchBtn = (Button) findViewById(R.id.search_btn);
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchKeyStr = searchEt.getText().toString();
+                if (!TextUtils.isEmpty(searchKeyStr) && searchKeyStr != null) {
+                    Intent intent = new Intent(SearchActivity.this, SearchGoodsActivity.class);
+                    intent.putExtra("SEARCH", searchKeyStr);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     public ArrayList<String> getHistoryTagListData() {

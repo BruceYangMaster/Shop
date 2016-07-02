@@ -10,12 +10,17 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
+        <requestFocus />
+
         <ImageView
             android:id="@+id/search_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/goods_detail_btn_back" />
-
+        <!--设定EditText的光标为显示/隐藏
+        android:cursorVisible="true"//显示
+        android:cursorVisible="false"//隐藏
+        注：默认显示-->
         <EditText
             android:id="@+id/search_et"
             android:layout_width="wrap_content"
@@ -73,11 +78,11 @@
 
         <TextView
             android:id="@+id/is_hava_history_tv"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="暂无搜索历史" />
+            android:text="暂无搜索历史"
+            android:visibility="gone" />
 
         <com.zhy.view.flowlayout.TagFlowLayout
             android:id="@+id/search_flow_history_layout"
