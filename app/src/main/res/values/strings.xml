@@ -42,4 +42,6 @@
     <string name="apply_time">申请时间</string>
     <string name="tuikuan_direction">查看钱款去向</string>
     <string name="need_help">需要帮助</string>
+    <string name="forgetpassword">忘记密码</string>
+    <string name="hint_signin_user">请输入手机号</string>
 </resources>
